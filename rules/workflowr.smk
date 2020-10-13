@@ -1,7 +1,8 @@
 rule build_wflow_description:
     input:
         dot = rules.make_rulegraph.output.dot,
-        rmd = "analysis/description.Rmd"
+        rmd = "analysis/description.Rmd",
+        yml = "analysis/_site.yml"
     output:
         html = "docs/description.html"
     conda:
@@ -18,7 +19,8 @@ rule build_qc_raw:
     input:
         fqc = expand(["data/raw/FastQC/{sample}{tag}_fastqc.zip"],
                      tag = [tag], sample = samples['sample']),
-        rmd = "analysis/qc_raw.Rmd"
+        rmd = "analysis/qc_raw.Rmd",
+        yml = "analysis/_site.yml"
     output:
         html = "docs/qc_raw.html"
     conda:
@@ -35,7 +37,8 @@ rule build_qc_trimmed:
     input:
         fqc = expand(["data/trimmed/FastQC/{sample}{tag}_fastqc.zip"],
                      tag = [tag], sample = samples['sample']),
-        rmd = "analysis/qc_trimmed.Rmd"
+        rmd = "analysis/qc_trimmed.Rmd",
+        yml = "analysis/_site.yml"
     output:
         html = "docs/qc_trimmed.html"
     conda:
@@ -53,7 +56,8 @@ rule build_qc_aligned:
         counts = rules.count.output,
         aln_logs = expand(["data/aligned/bam/{sample}{tag}/Log.final.out"],
                           sample = samples['sample'], tag = [tag]),
-        rmd = "analysis/qc_aligned.Rmd"
+        rmd = "analysis/qc_aligned.Rmd",
+        yml = "analysis/_site.yml"
     output:
         html = "docs/qc_aligned.html",
         rds = "output/genesGR.rds"
@@ -66,11 +70,12 @@ rule build_qc_aligned:
        """
        R -e "workflowr::wflow_build('{input.rmd}')" 2>&1 > {log}
        """
-       
+
 rule build_dge_analysis:
     input:
         rds = rules.build_qc_aligned.output.rds,
-        rmd = "analysis/dge_analysis.Rmd"
+        rmd = "analysis/dge_analysis.Rmd",
+        yml = "analysis/_site.yml"
     output:
         html = "docs/dge_analysis.html"
     conda:
@@ -81,7 +86,7 @@ rule build_dge_analysis:
     shell:
        """
        R -e "workflowr::wflow_build('{input.rmd}')" 2>&1 > {log}
-       """    
+       """
 
 rule build_wflow_site_index:
     input:
@@ -90,7 +95,8 @@ rule build_wflow_site_index:
         raw = rules.build_qc_raw.output.html,
         trimmed = rules.build_qc_trimmed.output.html,
         aligned = rules.build_qc_aligned.output.html,
-        dge = rules.build_dge_analysis.output.html
+        dge = rules.build_dge_analysis.output.html,
+        yml = "analysis/_site.yml"
     output:
         html = "docs/index.html"
     conda:

@@ -1,7 +1,7 @@
-name: "Insert Name Here"
+name: "MDA-MB-453_DHT-RNASeq"
 output_dir: ../docs
 navbar:
-  title: "Insert Name Here"
+  title: "MDA-MB-453_DHT-RNASeq"
   left:
   - text: Home
     href: index.html
