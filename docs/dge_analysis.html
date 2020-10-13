@@ -14,8 +14,7 @@
 
 <title>Differential Gene Expression</title>
 
-<script src="site_libs/header-attrs-2.4/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -28,6 +27,14 @@
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.15/datatables.js"></script>
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
 
 <link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
 <!-- Add a small amount of space between sections. -->
@@ -36,8 +43,6 @@ div.section {
   padding-top: 12px;
 }
 </style>
-
-
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -368,7 +373,7 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Insert Name Here</a>
+      <a class="navbar-brand" href="index.html">MDA-MB-453_DHT-RNASeq</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -408,6 +413,9 @@ div.tocify {
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="dge_analysis.html">Differential Gene Expression</a>
+    </li>
+    <li>
+      <a href="dge_enrichment.html">Enrichment Analysis</a>
     </li>
   </ul>
 </li>
@@ -549,220 +557,33 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomDRMCRLMDAMB453DHTRNASeqtreeac0a87157fbeb6d1a148b8ec0397da6cdee69442targetblankac0a871a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/tree/ac0a87157fbeb6d1a148b8ec0397da6cdee69442" target="_blank">ac0a871</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomDRMCRLMDAMB453DHTRNASeqtreef6ff160a227ae55293eaaf53b14a27897de11fa7targetblankf6ff160a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/tree/f6ff160a227ae55293eaaf53b14a27897de11fa7" target="_blank">f6ff160</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomDRMCRLMDAMB453DHTRNASeqtreeac0a87157fbeb6d1a148b8ec0397da6cdee69442targetblankac0a871a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomDRMCRLMDAMB453DHTRNASeqtreef6ff160a227ae55293eaaf53b14a27897de11fa7targetblankf6ff160a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/tree/ac0a87157fbeb6d1a148b8ec0397da6cdee69442" target="_blank">ac0a871</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/tree/f6ff160a227ae55293eaaf53b14a27897de11fa7" target="_blank">f6ff160</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
 Ignored files:
-    Ignored:    .snakemake/
-    Ignored:    data/aligned/bam/SLX-7239.D706_D501.C2FTBACXX.s_1.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7239.D706_D501.C2FTBACXX.s_1.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7239.D706_D501.C2FTBACXX.s_2.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7239.D706_D501.C2FTBACXX.s_2.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7239.D706_D501.C2FTBACXX.s_3.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7239.D706_D501.C2FTBACXX.s_3.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7239.D706_D501.C2FTBACXX.s_4.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7239.D706_D501.C2FTBACXX.s_4.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7239.D706_D501.C2FUJACXX.s_5.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7239.D706_D501.C2FUJACXX.s_5.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7239.D706_D501.C2FUJACXX.s_6.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7239.D706_D501.C2FUJACXX.s_6.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7239.D706_D501.C2FUJACXX.s_7.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7239.D706_D501.C2FUJACXX.s_7.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7239.D706_D501.C2FUJACXX.s_8.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7239.D706_D501.C2FUJACXX.s_8.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7239.D710_D503.C2FTBACXX.s_1.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7239.D710_D503.C2FTBACXX.s_1.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7239.D710_D503.C2FTBACXX.s_2.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7239.D710_D503.C2FTBACXX.s_2.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7239.D710_D503.C2FTBACXX.s_3.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7239.D710_D503.C2FTBACXX.s_3.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7239.D710_D503.C2FTBACXX.s_4.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7239.D710_D503.C2FTBACXX.s_4.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7239.D710_D503.C2FUJACXX.s_5.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7239.D710_D503.C2FUJACXX.s_5.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7239.D710_D503.C2FUJACXX.s_6.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7239.D710_D503.C2FUJACXX.s_6.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7239.D710_D503.C2FUJACXX.s_7.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7239.D710_D503.C2FUJACXX.s_7.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7239.D710_D503.C2FUJACXX.s_8.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7239.D710_D503.C2FUJACXX.s_8.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D701_D504.C2FTBACXX.s_5.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D701_D504.C2FTBACXX.s_5.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D701_D504.C2FTBACXX.s_6.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D701_D504.C2FTBACXX.s_6.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D701_D504.C2FTBACXX.s_7.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D701_D504.C2FTBACXX.s_7.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D701_D504.C2FTBACXX.s_8.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D701_D504.C2FTBACXX.s_8.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D701_D504.C2FUJACXX.s_1.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D701_D504.C2FUJACXX.s_1.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D701_D504.C2FUJACXX.s_2.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D701_D504.C2FUJACXX.s_2.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D701_D504.C2FUJACXX.s_3.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D701_D504.C2FUJACXX.s_3.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D701_D504.C2FUJACXX.s_4.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D701_D504.C2FUJACXX.s_4.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D701_D507.C2FTBACXX.s_5.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D701_D507.C2FTBACXX.s_5.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D701_D507.C2FTBACXX.s_6.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D701_D507.C2FTBACXX.s_6.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D701_D507.C2FTBACXX.s_7.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D701_D507.C2FTBACXX.s_7.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D701_D507.C2FTBACXX.s_8.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D701_D507.C2FTBACXX.s_8.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D701_D507.C2FUJACXX.s_1.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D701_D507.C2FUJACXX.s_1.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D701_D507.C2FUJACXX.s_2.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D701_D507.C2FUJACXX.s_2.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D701_D507.C2FUJACXX.s_3.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D701_D507.C2FUJACXX.s_3.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D701_D507.C2FUJACXX.s_4.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D701_D507.C2FUJACXX.s_4.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D702_D503.C2FTBACXX.s_5.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D702_D503.C2FTBACXX.s_5.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D702_D503.C2FTBACXX.s_6.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D702_D503.C2FTBACXX.s_6.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D702_D503.C2FTBACXX.s_7.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D702_D503.C2FTBACXX.s_7.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D702_D503.C2FTBACXX.s_8.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D702_D503.C2FTBACXX.s_8.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D702_D503.C2FUJACXX.s_1.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D702_D503.C2FUJACXX.s_1.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D702_D503.C2FUJACXX.s_2.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D702_D503.C2FUJACXX.s_2.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D702_D503.C2FUJACXX.s_3.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D702_D503.C2FUJACXX.s_3.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D702_D503.C2FUJACXX.s_4.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D702_D503.C2FUJACXX.s_4.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D705_D507.C2FTBACXX.s_5.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D705_D507.C2FTBACXX.s_5.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D705_D507.C2FTBACXX.s_6.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D705_D507.C2FTBACXX.s_6.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D705_D507.C2FTBACXX.s_7.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D705_D507.C2FTBACXX.s_7.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D705_D507.C2FTBACXX.s_8.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D705_D507.C2FTBACXX.s_8.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D705_D507.C2FUJACXX.s_1.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D705_D507.C2FUJACXX.s_1.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D705_D507.C2FUJACXX.s_2.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D705_D507.C2FUJACXX.s_2.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D705_D507.C2FUJACXX.s_3.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D705_D507.C2FUJACXX.s_3.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D705_D507.C2FUJACXX.s_4.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D705_D507.C2FUJACXX.s_4.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D706_D503.C2FTBACXX.s_5.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D706_D503.C2FTBACXX.s_5.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D706_D503.C2FTBACXX.s_6.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D706_D503.C2FTBACXX.s_6.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D706_D503.C2FTBACXX.s_7.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D706_D503.C2FTBACXX.s_7.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D706_D503.C2FTBACXX.s_8.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D706_D503.C2FTBACXX.s_8.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D706_D503.C2FUJACXX.s_1.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D706_D503.C2FUJACXX.s_1.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D706_D503.C2FUJACXX.s_2.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D706_D503.C2FUJACXX.s_2.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D706_D503.C2FUJACXX.s_3.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D706_D503.C2FUJACXX.s_3.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D706_D503.C2FUJACXX.s_4.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D706_D503.C2FUJACXX.s_4.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D707_D505.C2FTBACXX.s_5.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D707_D505.C2FTBACXX.s_5.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D707_D505.C2FTBACXX.s_6.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D707_D505.C2FTBACXX.s_6.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D707_D505.C2FTBACXX.s_7.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D707_D505.C2FTBACXX.s_7.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D707_D505.C2FTBACXX.s_8.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D707_D505.C2FTBACXX.s_8.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D707_D505.C2FUJACXX.s_1.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D707_D505.C2FUJACXX.s_1.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D707_D505.C2FUJACXX.s_2.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D707_D505.C2FUJACXX.s_2.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D707_D505.C2FUJACXX.s_3.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D707_D505.C2FUJACXX.s_3.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D707_D505.C2FUJACXX.s_4.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D707_D505.C2FUJACXX.s_4.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D707_D507.C2FTBACXX.s_5.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D707_D507.C2FTBACXX.s_5.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D707_D507.C2FTBACXX.s_6.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D707_D507.C2FTBACXX.s_6.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D707_D507.C2FTBACXX.s_7.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D707_D507.C2FTBACXX.s_7.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D707_D507.C2FTBACXX.s_8.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D707_D507.C2FTBACXX.s_8.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D707_D507.C2FUJACXX.s_1.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D707_D507.C2FUJACXX.s_1.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D707_D507.C2FUJACXX.s_2.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D707_D507.C2FUJACXX.s_2.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D707_D507.C2FUJACXX.s_3.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D707_D507.C2FUJACXX.s_3.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D707_D507.C2FUJACXX.s_4.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D707_D507.C2FUJACXX.s_4.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D707_D508.C2FTBACXX.s_5.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D707_D508.C2FTBACXX.s_5.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D707_D508.C2FTBACXX.s_6.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D707_D508.C2FTBACXX.s_6.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D707_D508.C2FTBACXX.s_7.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D707_D508.C2FTBACXX.s_7.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D707_D508.C2FTBACXX.s_8.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D707_D508.C2FTBACXX.s_8.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D707_D508.C2FUJACXX.s_1.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D707_D508.C2FUJACXX.s_1.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D707_D508.C2FUJACXX.s_2.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D707_D508.C2FUJACXX.s_2.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D707_D508.C2FUJACXX.s_3.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D707_D508.C2FUJACXX.s_3.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D707_D508.C2FUJACXX.s_4.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D707_D508.C2FUJACXX.s_4.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D708_D508.C2FTBACXX.s_5.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D708_D508.C2FTBACXX.s_5.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D708_D508.C2FTBACXX.s_6.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D708_D508.C2FTBACXX.s_6.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D708_D508.C2FTBACXX.s_7.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D708_D508.C2FTBACXX.s_7.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D708_D508.C2FTBACXX.s_8.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D708_D508.C2FTBACXX.s_8.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D708_D508.C2FUJACXX.s_1.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D708_D508.C2FUJACXX.s_1.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D708_D508.C2FUJACXX.s_2.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D708_D508.C2FUJACXX.s_2.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D708_D508.C2FUJACXX.s_3.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D708_D508.C2FUJACXX.s_3.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D708_D508.C2FUJACXX.s_4.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D708_D508.C2FUJACXX.s_4.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D710_D504.C2FTBACXX.s_5.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D710_D504.C2FTBACXX.s_5.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D710_D504.C2FTBACXX.s_6.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D710_D504.C2FTBACXX.s_6.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D710_D504.C2FTBACXX.s_7.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D710_D504.C2FTBACXX.s_7.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D710_D504.C2FTBACXX.s_8.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D710_D504.C2FTBACXX.s_8.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D710_D504.C2FUJACXX.s_1.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D710_D504.C2FUJACXX.s_1.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D710_D504.C2FUJACXX.s_2.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D710_D504.C2FUJACXX.s_2.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D710_D504.C2FUJACXX.s_3.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D710_D504.C2FUJACXX.s_3.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/aligned/bam/SLX-7489.D710_D504.C2FUJACXX.s_4.r_1/Aligned.sortedByCoord.out.bam
-    Ignored:    data/aligned/bam/SLX-7489.D710_D504.C2FUJACXX.s_4.r_1/Aligned.sortedByCoord.out.bam.bai
-    Ignored:    data/trimmed/fastq/
-    Ignored:    logs/
+    Ignored:    .Rhistory
+    Ignored:    .Rproj.user/
 
 Untracked files:
-    Untracked:  data/raw/fastq
+    Untracked:  analysis/makeTidyGraph.R
+    Untracked:  analysis/plotTidyGraph.R
+    Untracked:  output/MDA-MB-453_RNASeq.tsv
+    Untracked:  output/dge.rds
+
+Unstaged changes:
+    Modified:   analysis/_site.yml
 
 </code></pre>
 <p>
@@ -806,6 +627,40 @@ Message
 Rmd
 </td>
 <td>
+<a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/blob/f6ff160a227ae55293eaaf53b14a27897de11fa7/analysis/dge_analysis.Rmd" target="_blank">f6ff160</a>
+</td>
+<td>
+Steve Ped
+</td>
+<td>
+2020-10-13
+</td>
+<td>
+Copied across previous analysis
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/DRMCRL/MDA-MB-453_DHT-RNASeq/7d6936a3eeca8ca7f3fc3a1269377ad0db9305da/docs/dge_analysis.html" target="_blank">7d6936a</a>
+</td>
+<td>
+Steve Pederson
+</td>
+<td>
+2020-10-13
+</td>
+<td>
+Finished run
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
 <a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/blob/645309c43115ea0b7aceff4cc3b8b0e56a7730ba/analysis/dge_analysis.Rmd" target="_blank">645309c</a>
 </td>
 <td>
@@ -832,7 +687,13 @@ library(pander)
 library(glue)
 library(edgeR)
 library(AnnotationHub)
-library(ensembldb)</code></pre>
+library(ensembldb)
+library(cowplot)
+library(ggfortify)
+library(magrittr)
+library(cqn)
+library(ggrepel)
+library(DT)</code></pre>
 <pre class="r"><code>panderOptions(&quot;table.split.table&quot;, Inf)
 panderOptions(&quot;big.mark&quot;, &quot;,&quot;)
 theme_set(theme_bw())</code></pre>
@@ -842,38 +703,10 @@ suffix &lt;- paste0(config$tag)
 sp &lt;- config$ref$species %&gt;%
   str_replace(&quot;(^[a-z])[a-z]*_([a-z]+)&quot;, &quot;\\1\\2&quot;) %&gt;%
   str_to_title()</code></pre>
-<pre class="r"><code>samples &lt;- config$samples %&gt;%
-  here::here() %&gt;%
-  read_tsv() %&gt;%
-  mutate(
-    Filename = paste0(sample, suffix)
-  ) %&gt;%
-  mutate_if(
-    function(x){length(unique(x)) &lt; length(x)},
-    as.factor
-  )</code></pre>
-<pre class="r"><code>config$analysis &lt;- config$analysis %&gt;%
-  lapply(intersect, y = colnames(samples)) %&gt;%
-  .[vapply(., length, integer(1)) &gt; 0]</code></pre>
-<pre class="r"><code>if (length(config$analysis)) {
-  samples &lt;- samples %&gt;%
-    unite(
-      col = group, 
-      any_of(as.character(unlist(config$analysis))), 
-      sep = &quot;_&quot;, remove = FALSE
-    ) 
-} else {
-  samples$group &lt;- samples$Filename
-}</code></pre>
-<pre class="r"><code>group_cols &lt;- hcl.colors(
-  n = length(unique(samples$group)), 
-  palette = &quot;Zissou 1&quot;
-  ) %&gt;%
-  setNames(unique(samples$group))</code></pre>
 <div id="setup" class="section level1">
 <h1>Setup</h1>
-<div id="annotations" class="section level2">
-<h2>Annotations</h2>
+<div id="gene-annotations" class="section level2">
+<h2>Gene Annotations</h2>
 <pre class="r"><code>ah &lt;- AnnotationHub() %&gt;%
   subset(rdataclass == &quot;EnsDb&quot;) %&gt;%
   subset(str_detect(description, as.character(config$ref$release))) %&gt;%
@@ -883,6 +716,135 @@ stopifnot(length(ah) == 1)</code></pre>
 genesGR &lt;- read_rds(here::here(&quot;output/genesGR.rds&quot;))</code></pre>
 <p>Gene annotations were again loaded from Ensembl Release 101. The <a href="qc_aligned.html#Annotation_Setup">previously defined</a> <code>GenomicRanges</code> object containing GC content and Gene Length was also loaded, containing information for 67,990 genes.</p>
 </div>
+<div id="sample-merging" class="section level2">
+<h2>Sample Merging</h2>
+<pre class="r"><code>samples &lt;- config$samples %&gt;%
+  here::here() %&gt;%
+  read_tsv() %&gt;%
+  mutate(
+    Filename = paste0(sample, suffix)
+  ) %&gt;%
+  dplyr::select(Filename, flowcell_id, treat, rep, desc) %&gt;%
+  mutate(name = str_extract(desc, &quot;MDA[0-9].++&quot;)) %&gt;%
+  dplyr::select(-desc) %&gt;%
+  mutate_if(
+    function(x){length(unique(x)) &lt; length(x)},
+    as.factor
+  ) %&gt;%
+  mutate(
+    treat = relevel(treat, ref = &quot;Vehicle&quot;)
+  )</code></pre>
+<pre class="r"><code>mergedSamples &lt;- samples %&gt;%
+  group_by(name, rep, treat) %&gt;%
+  tally()</code></pre>
+<pre class="r"><code>pander(
+  mergedSamples,
+  caption = &quot;*Summary of sequencing total runs for all samples*&quot;
+)</code></pre>
+<table style="width:40%;">
+<caption><em>Summary of sequencing total runs for all samples</em></caption>
+<colgroup>
+<col width="12%" />
+<col width="8%" />
+<col width="13%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">name</th>
+<th align="center">rep</th>
+<th align="center">treat</th>
+<th align="center">n</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">MDA1-D</td>
+<td align="center">1</td>
+<td align="center">DHT</td>
+<td align="center">8</td>
+</tr>
+<tr class="even">
+<td align="center">MDA1-V</td>
+<td align="center">1</td>
+<td align="center">Vehicle</td>
+<td align="center">8</td>
+</tr>
+<tr class="odd">
+<td align="center">MDA2-D</td>
+<td align="center">2</td>
+<td align="center">DHT</td>
+<td align="center">8</td>
+</tr>
+<tr class="even">
+<td align="center">MDA2-V</td>
+<td align="center">2</td>
+<td align="center">Vehicle</td>
+<td align="center">8</td>
+</tr>
+<tr class="odd">
+<td align="center">MDA3-D</td>
+<td align="center">3</td>
+<td align="center">DHT</td>
+<td align="center">8</td>
+</tr>
+<tr class="even">
+<td align="center">MDA3-V</td>
+<td align="center">3</td>
+<td align="center">Vehicle</td>
+<td align="center">8</td>
+</tr>
+<tr class="odd">
+<td align="center">MDA4-D</td>
+<td align="center">4</td>
+<td align="center">DHT</td>
+<td align="center">8</td>
+</tr>
+<tr class="even">
+<td align="center">MDA4-V</td>
+<td align="center">4</td>
+<td align="center">Vehicle</td>
+<td align="center">8</td>
+</tr>
+<tr class="odd">
+<td align="center">MDA5-D</td>
+<td align="center">5</td>
+<td align="center">DHT</td>
+<td align="center">8</td>
+</tr>
+<tr class="even">
+<td align="center">MDA5-V</td>
+<td align="center">5</td>
+<td align="center">Vehicle</td>
+<td align="center">8</td>
+</tr>
+<tr class="odd">
+<td align="center">MDA6-D</td>
+<td align="center">6</td>
+<td align="center">DHT</td>
+<td align="center">8</td>
+</tr>
+<tr class="even">
+<td align="center">MDA6-V</td>
+<td align="center">6</td>
+<td align="center">Vehicle</td>
+<td align="center">8</td>
+</tr>
+</tbody>
+</table>
+<p>This data set is slightly unique in that samples were sequenced across multiple lanes and flowcells. Metadata was re-organised to enable summarising of counts across the multiple sequencing runs obtained for every sample. The <a href="qc_aligned.html#pca">initial PCA</a> showed that variability between replicates and flowcells was dwarfed by variability between samples. As such, all counts were able to be merged to give a single set of counts for each individual sample.</p>
+<pre class="r"><code>treat_cols &lt;- hcl.colors(
+  n = length(levels(mergedSamples$treat)), 
+  palette = &quot;Red-Blue&quot;, 
+  rev = TRUE
+  ) %&gt;%
+  setNames(levels(mergedSamples$treat)) 
+rep_cols &lt;- hcl.colors(
+  n = length(levels(mergedSamples$rep)), 
+  palette = &quot;Spectral&quot;
+  ) %&gt;%
+  setNames(levels(mergedSamples$rep))</code></pre>
+</div>
 <div id="count-data" class="section level2">
 <h2>Count Data</h2>
 <pre class="r"><code>counts &lt;- here::here(&quot;data/aligned/counts/counts.out&quot;) %&gt;%
@@ -891,13 +853,652 @@ genesGR &lt;- read_rds(here::here(&quot;output/genesGR.rds&quot;))</code></pre>
   rename_at(vars(ends_with(&quot;bam&quot;)), dirname) %&gt;%
   rename_all(basename) %&gt;%
   column_to_rownames(&quot;Geneid&quot;)</code></pre>
-<pre class="r"><code>dge &lt;- DGEList(
-  counts = counts,
-  samples = column_to_rownames(samples, &quot;Filename&quot;)[colnames(counts),],
-  genes = mcols(genesGR[rownames(counts)])[, c(&quot;gene_id&quot;, &quot;gene_name&quot;, &quot;gene_biotype&quot;, &quot;entrezid&quot;, &quot;longest_tx&quot;, &quot;ave_tx_len&quot;, &quot;gc_content&quot;)]
-) %&gt;%
+<pre class="r"><code>mergedCounts &lt;- counts %&gt;%
+  rownames_to_column(&quot;gene_id&quot;) %&gt;%
+  pivot_longer(
+    cols = -gene_id,
+    names_to = &quot;Filename&quot;,
+    values_to = &quot;counts&quot;
+  ) %&gt;%
+  left_join(samples) %&gt;%
+  group_by(
+    gene_id, name, rep, treat
+  ) %&gt;%
+  summarise(counts = sum(counts), .groups = &quot;drop&quot;) %&gt;%
+  pivot_wider(
+    id_cols = gene_id,
+    values_from = counts,
+    names_from = name
+  ) %&gt;%
+  column_to_rownames(&quot;gene_id&quot;)</code></pre>
+<pre class="r"><code>minCPM &lt;- 1.5
+minSamples &lt;- ncol(mergedCounts) / 2
+genes2Keep &lt;- mergedCounts %&gt;%
+  cpm() %&gt;%
+  is_greater_than(minCPM) %&gt;%
+  rowSums() %&gt;%
+  is_weakly_greater_than(minSamples) </code></pre>
+<p>The criteria for a gene to be considered as detected, <span class="math inline">\(&gt;\)</span> 1.5 counts per million (CPM) were required to observed in <span class="math inline">\(\geq\)</span> 6 samples. This effectively ensured <span class="math inline">\(\geq\)</span> 5 counts in at least 6 merged libraries.</p>
+<p>Of the 60,671 genes contained in the annotation for this release, 46,112 genes were removed as failing this criteria for detection, leaving 14,559 genes for downstream analysis.</p>
+<pre class="r"><code>a &lt;- mergedCounts %&gt;%
+  cpm(log = TRUE) %&gt;%
+  as.data.frame() %&gt;%
+  rownames_to_column(&quot;gene_id&quot;) %&gt;%
+  as_tibble() %&gt;%
+  pivot_longer(
+    cols = contains(&quot;MDA&quot;),
+    names_to = &quot;name&quot;,
+    values_to = &quot;logCPM&quot;
+  ) %&gt;%
+  left_join(samples) %&gt;%
+  ggplot(aes(logCPM, stat(density), colour = rep, linetype = treat)) +
+  geom_density() +
+  scale_colour_manual(values= rep_cols) +
+  labs(
+    y = &quot;Density&quot;,
+    colour = &quot;Replicate&quot;,
+    linetype = &quot;Treatment&quot;
+  )
+b &lt;- mergedCounts[genes2Keep,] %&gt;%
+  cpm(log = TRUE) %&gt;%
+  as.data.frame() %&gt;%
+  rownames_to_column(&quot;gene_id&quot;) %&gt;%
+  as_tibble() %&gt;%
+  pivot_longer(
+    cols = contains(&quot;MDA&quot;),
+    names_to = &quot;name&quot;,
+    values_to = &quot;logCPM&quot;
+  ) %&gt;%
+  left_join(samples) %&gt;%
+  ggplot(aes(logCPM, stat(density), colour = rep, linetype = treat)) +
+  geom_density() +
+  scale_colour_manual(values= rep_cols) +
+  labs(
+    y = &quot;Density&quot;,
+    colour = &quot;Replicate&quot;,
+    linetype = &quot;Treatment&quot;
+  )
+plot_grid(
+  a + theme(legend.position = &quot;none&quot;), 
+  b + theme(legend.position = &quot;none&quot;), 
+  get_legend(a),
+  labels = c(&quot;A&quot;, &quot;B&quot;),
+  rel_widths = c(4, 4, 1),
+  nrow = 1
+)</code></pre>
+<div class="figure" style="text-align: center">
+<img src="figure/dge_analysis.Rmd/plotDensities-1.png" alt="*Distributions of logCPM values on merged counts, A) before and B) after filtering of undetectable genes. Some differences between replicates were noted.*" width="960" />
+<p class="caption">
+<em>Distributions of logCPM values on merged counts, A) before and B) after filtering of undetectable genes. Some differences between replicates were noted.</em>
+</p>
+</div>
+<pre class="r"><code>dge &lt;- mergedCounts[genes2Keep,] %&gt;%
+  DGEList(
+    samples = mergedSamples %&gt;%
+      as.data.frame() %&gt;%
+      set_rownames(.$name) %&gt;%
+      .[,colnames(.)],
+    group = mergedSamples %&gt;%
+      as.data.frame() %&gt;%
+      set_rownames(.$name) %&gt;%
+      .[,colnames(.)] %&gt;%
+      pull(treat),
+    genes = genesGR[rownames(.)]
+  ) %&gt;%
   calcNormFactors()</code></pre>
-<p>Prior to filtering for undetectable genes, counts were loaded as a <code>DGEList</code>, incorporating both sample and gene metadata.</p>
+</div>
+</div>
+<div id="qc" class="section level1">
+<h1>QC</h1>
+<div id="library-sizes" class="section level2">
+<h2>Library Sizes</h2>
+<pre class="r"><code>dge$samples %&gt;%
+  ggplot(aes(name, lib.size, fill = treat)) +
+  geom_col() +
+  geom_hline(yintercept = 1e7, linetype = 2) +
+  facet_wrap(~treat, scales = &quot;free_x&quot;) +
+  scale_y_continuous(
+    labels = comma, expand = expansion(c(0, 0.05))
+  ) +
+  scale_fill_manual(values= treat_cols) +
+  labs(x = &quot;Sample Name&quot;, y = &quot;Library Size&quot;) +
+  theme(legend.position = &quot;none&quot;) </code></pre>
+<div class="figure" style="text-align: center">
+<img src="figure/dge_analysis.Rmd/plotLibSizes-1.png" alt="*Library sizes after removal of undetectable genes. The common-use minimum library size of 10 million reads is shown as a dashed line.*" width="960" />
+<p class="caption">
+<em>Library sizes after removal of undetectable genes. The common-use minimum library size of 10 million reads is shown as a dashed line.</em>
+</p>
+</div>
+<p>Given that previous work had only assessed the libraries prior to merging, the library sizes were checked after merging replicate sequencing runs. The median library size was found to be 13.6 million reads which is just above the common-use minimum recommendation of 10 million reads/sample.</p>
+<p>However, sample MDA6 was below the common-use minimum library size in both treatment groups and whilst discarding this sample is not advised, this should be noted for all downstream analysis. Similarly, the DHT-treated sample for MDA2 showed a library size which was nearly double the rest of the samples</p>
+</div>
+<div id="pca-pre-normalisation" class="section level2">
+<h2>PCA: Pre Normalisation</h2>
+<pre class="r"><code>pca &lt;- dge %&gt;%
+  cpm(log = TRUE) %&gt;%
+  t() %&gt;%
+  prcomp() </code></pre>
+<pre class="r"><code>a &lt;- pca %&gt;%
+  autoplot(
+    data = dge$samples, 
+    x = 1, y = 3,
+    colour = &quot;rep&quot;, 
+    shape = &quot;treat&quot;, 
+    size = 3
+  ) +
+  scale_colour_manual(values= rep_cols) +
+  labs(
+    colour = &quot;Replicate&quot;,
+    shape = &quot;Treatment&quot;
+  )
+b &lt;- pca %&gt;%
+  autoplot(
+    data = dge$samples, 
+    x = 2, y = 3,
+    colour = &quot;rep&quot;, 
+    shape = &quot;treat&quot;, 
+    size = 3
+  ) +
+  scale_colour_manual(values= rep_cols) +
+  labs(
+    colour = &quot;Replicate&quot;,
+    shape = &quot;Treatment&quot;
+  )
+c &lt;- pca %&gt;%
+  autoplot(
+    data = dge$samples, 
+    x = 1, y = 2,
+    colour = &quot;rep&quot;, 
+    shape = &quot;treat&quot;, 
+    size = 3
+  ) +
+  geom_segment(
+    aes(
+      x = Vehicle_PC1, xend = DHT_PC1, 
+      y = Vehicle_PC2, yend = DHT_PC2,
+      colour = rep
+    ),
+    data = . %&gt;%
+      dplyr::select(any_of(colnames(dge$samples)), PC1, PC2) %&gt;% 
+      pivot_longer(cols = starts_with(&quot;PC&quot;), names_to = &quot;PC&quot;, values_to = &quot;value&quot;) %&gt;% 
+      pivot_wider(names_from = c(&quot;treat&quot;, &quot;PC&quot;), values_from = value, id_cols = c(&quot;rep&quot;)),
+    alpha = 0.4,
+    arrow = arrow()
+  ) +
+  scale_colour_manual(values= rep_cols) +
+  labs(
+    colour = &quot;Replicate&quot;,
+    shape = &quot;Treatment&quot;
+  )
+plot_grid(
+  a + theme(legend.position = &quot;none&quot;), 
+  b + theme(legend.position = &quot;none&quot;),
+  c + theme(legend.position = &quot;none&quot;),
+  get_legend(a),
+  labels = LETTERS[1:3],
+  nrow = 2
+)</code></pre>
+<div class="figure" style="text-align: center">
+<img src="figure/dge_analysis.Rmd/plotPCA-1.png" alt="*PCA on logCPM from merged counts. Replicate 2 appears problematic in both treatments, whilst the Vehicle samples from replicate 5 also appears slightly divergent from other vehicle samples. PC1 appears to capture a non-experimental artefact whilst PC2 captures most of the intended biology, as shown by the arrows which move from Vehicle to DHT treated samples.*" width="768" />
+<p class="caption">
+<em>PCA on logCPM from merged counts. Replicate 2 appears problematic in both treatments, whilst the Vehicle samples from replicate 5 also appears slightly divergent from other vehicle samples. PC1 appears to capture a non-experimental artefact whilst PC2 captures most of the intended biology, as shown by the arrows which move from Vehicle to DHT treated samples.</em>
+</p>
+</div>
+<p>Despite concerns raised by the library sizes, sample MDA6 appears to be relatively consistent with other samples of the same treatment group. However, MDA2 showed significant divergence from the others in both treatment groups, whilst the vehicle-treated (i.e. control) sample from MDA5 was also a notable outlier.</p>
+</div>
+<div id="checks-for-gc-and-length-bias" class="section level2">
+<h2>Checks for GC and Length bias</h2>
+<p>Given the clear unexpected variability captured by PC1, the impact of GC content or length bias was assessed as a possible source.</p>
+<p>Genes were divided in 10 approximately equal sized bins based on increasing length, and 10 approximately equal sized bins based on increasing GC content, with the final GC/Length bins being the combination 100 bins using both sets. The contribution of each gene to PC1 and PC2 was assessed and a t-test performed on each bin. This tests</p>
+<p><span class="math display">\[
+H_0: \mu = 0 \text{ against } H_A: \mu \neq 0
+\]</span></p>
+<p>where <span class="math inline">\(\mu\)</span> represents the true contribution to PC1 of all genes in that bin.</p>
+<p>If any bin makes a contribution to PC1 the mean will be clearly non-zero, whilst if there is no contribution the mean will be near zero. In this way, the impact of gene length and GC content on variance within the dataset can be assessed. As seen below, the contribution of GC content and gene length to PC1 is very clear, with a smaller contribution being evident across PC2. As a result, Conditional Quantile Normalisation (<code>CQN</code>) is recommended in preference to the more common TMM normalisation.</p>
+<pre class="r"><code>dge$genes %&gt;%
+  dplyr::select(gene_id, ave_tx_len, gc_content) %&gt;%
+  mutate(
+    GC = cut(
+      x = gc_content,
+      labels = seq_len(10),
+      breaks = quantile(gc_content, probs = seq(0, 1, length.out = 11)),
+      include.lowest = TRUE
+    ),
+    Length = cut(
+      x = ave_tx_len,
+      labels = seq_len(10),
+      breaks = quantile(ave_tx_len, probs = seq(0, 1, length.out = 11)),
+      include.lowest = TRUE
+    ),
+    bin = paste(GC, Length, sep = &quot;_&quot;),
+    PC1 = pca$rotation[gene_id, &quot;PC1&quot;],
+    PC2 = pca$rotation[gene_id, &quot;PC2&quot;]
+  ) %&gt;%
+  pivot_longer(
+    cols = c(&quot;PC1&quot;, &quot;PC2&quot;),
+    names_to = &quot;PC&quot;,
+    values_to = &quot;value&quot;
+  ) %&gt;%
+  group_by(PC, GC, Length, bin) %&gt;%
+  summarise(
+    Size = n(),
+    mean = mean(value),
+    sd = sd(value),
+    t = t.test(value)$statistic,
+    p = t.test(value)$p.value,
+    adjP = p.adjust(p, method = &quot;bonf&quot;)
+  ) %&gt;%
+  ggplot(
+    aes(Length, GC, colour = t, alpha = -log10(adjP), size = Size)
+  ) +
+  geom_point() +
+  facet_wrap(~PC) +
+  scale_colour_gradient2() +
+  scale_size_continuous(range = c(1, 10)) +
+  labs(alpha = expression(paste(-log[10], p))) +
+  theme(
+    panel.grid = element_blank(),
+    legend.position = &quot;bottom&quot;
+  ) </code></pre>
+<div class="figure" style="text-align: center">
+<img src="figure/dge_analysis.Rmd/plotPCA_GC_Length-1.png" alt="*Contribution of each GC/Length Bin to PC1 and PC2. Fill colours indicate the t-statistic, with tranparency denoting significance as -log10(p), using Bonferroni-adjusted p-values. The number of genes in each bin is indicated by the circle size. The clear pattern across PC1 is unambiguous.*" width="960" />
+<p class="caption">
+<em>Contribution of each GC/Length Bin to PC1 and PC2. Fill colours indicate the t-statistic, with tranparency denoting significance as -log10(p), using Bonferroni-adjusted p-values. The number of genes in each bin is indicated by the circle size. The clear pattern across PC1 is unambiguous.</em>
+</p>
+</div>
+<p>Given these results, the considered options for analysis are:</p>
+<ul>
+<li>Use CQN normalisation and GLM-QL Fits</li>
+<li>Use limma/voom to take advantage of the ability to down-weight samples</li>
+<li>Exclude replicate 2, in combination with either of the above strategies</li>
+</ul>
+</div>
+<div id="normalisation" class="section level2">
+<h2>Normalisation</h2>
+<pre class="r"><code>cqNorm &lt;- with(
+  dge,
+  cqn(
+    counts= counts,
+    x = genes$gc_content,
+    lengths = genes$ave_tx_len
+  )
+)
+dge$offset &lt;- cqNorm$glm.offset
+logCPM &lt;- cqNorm$y + cqNorm$offset</code></pre>
+<pre class="r"><code>a &lt;- cqNorm$func1 %&gt;%
+  as.data.frame() %&gt;%
+  mutate(x = cqNorm$grid1) %&gt;%
+  pivot_longer(
+    cols = any_of(colnames(dge)),
+    names_to = &quot;name&quot;,
+    values_to = &quot;QR fit&quot;
+  ) %&gt;%
+  left_join(dge$samples) %&gt;%
+  ggplot(
+    aes(x, `QR fit`, colour = rep, group = name, linetype = treat)
+  ) +
+  geom_line() +
+  labs(x = &quot;GC content&quot;, colour = &quot;Replicate&quot;, linetype = &quot;Treatment&quot;)
+b &lt;- cqNorm$func2 %&gt;%
+  as.data.frame() %&gt;%
+  mutate(x = cqNorm$grid2) %&gt;%
+  pivot_longer(
+    cols = any_of(colnames(dge)),
+    names_to = &quot;name&quot;,
+    values_to = &quot;QR fit&quot;
+  ) %&gt;%
+  left_join(dge$samples) %&gt;%
+  ggplot(
+    aes(x, `QR fit`, colour = rep, group = name, linetype = treat)
+  ) +
+  geom_line() +
+  labs(
+    x = expression(paste(log[10], &quot; Gene Length (kb)&quot;)),
+    colour = &quot;Replicate&quot;, linetype = &quot;Treatment&quot;
+  )
+plot_grid(
+  a + theme(legend.position = &quot;none&quot;), 
+  b + theme(legend.position = &quot;none&quot;),
+  get_legend(a),
+  nrow = 1,
+  rel_widths = c(3, 3, 1)
+)</code></pre>
+<div class="figure" style="text-align: center">
+<img src="figure/dge_analysis.Rmd/plotCQN-1.png" alt="*Model fits used when applying CQN. The divergent samples previously noted on the PCA are again quite divergent here. In particular, the long genes with low GC content appear to be where the primary differences are found, in keeping with the previous PCA analysis.*" width="960" />
+<p class="caption">
+<em>Model fits used when applying CQN. The divergent samples previously noted on the PCA are again quite divergent here. In particular, the long genes with low GC content appear to be where the primary differences are found, in keeping with the previous PCA analysis.</em>
+</p>
+</div>
+<pre class="r"><code>pcaPost &lt;- logCPM %&gt;%
+  t() %&gt;%
+  prcomp() </code></pre>
+<pre class="r"><code>a &lt;- pcaPost %&gt;%
+  autoplot(
+    data = dge$samples, 
+    x = 1, y = 3,
+    colour = &quot;rep&quot;, 
+    shape = &quot;treat&quot;, 
+    size = 3
+  ) +
+  scale_colour_manual(values= rep_cols) +
+  labs(
+    colour = &quot;Replicate&quot;,
+    shape = &quot;Treatment&quot;
+  )
+b &lt;- pcaPost %&gt;%
+  autoplot(
+    data = dge$samples, 
+    x = 2, y = 3,
+    colour = &quot;rep&quot;, 
+    shape = &quot;treat&quot;, 
+    size = 3
+  ) +
+  scale_colour_manual(values= rep_cols) +
+  labs(
+    colour = &quot;Replicate&quot;,
+    shape = &quot;Treatment&quot;
+  )
+c &lt;- pcaPost %&gt;%
+  autoplot(
+    data = dge$samples, 
+    x = 1, y = 2,
+    colour = &quot;rep&quot;, 
+    shape = &quot;treat&quot;, 
+    size = 3
+  ) +
+  geom_segment(
+    aes(
+      x = Vehicle_PC1, xend = DHT_PC1, 
+      y = Vehicle_PC2, yend = DHT_PC2,
+      colour = rep
+    ),
+    data = . %&gt;%
+      dplyr::select(any_of(colnames(dge$samples)), PC1, PC2) %&gt;% 
+      pivot_longer(cols = starts_with(&quot;PC&quot;), names_to = &quot;PC&quot;, values_to = &quot;value&quot;) %&gt;% 
+      pivot_wider(names_from = c(&quot;treat&quot;, &quot;PC&quot;), values_from = value, id_cols = c(&quot;rep&quot;)),
+    alpha = 0.4,
+    arrow = arrow()
+  ) +
+  scale_colour_manual(values= rep_cols) +
+  labs(
+    colour = &quot;Replicate&quot;,
+    shape = &quot;Treatment&quot;
+  )
+plot_grid(
+  a + theme(legend.position = &quot;none&quot;), 
+  b + theme(legend.position = &quot;none&quot;),
+  c + theme(legend.position = &quot;none&quot;),
+  get_legend(a),
+  labels = LETTERS[1:3],
+  nrow = 2
+)</code></pre>
+<div class="figure" style="text-align: center">
+<img src="figure/dge_analysis.Rmd/plotPcaPost-1.png" alt="*PCA on logCPM after performing CQN. Much of the variability previously seen in with replicate 5 has now been minimised, whilst replicate 2 still appears to be a considerable outlier. However, PC1 and PC2 now capture the biology in question, with vectors denoting the shift from vehicle to treatment shown as arrows shown in panel C. Panel B does highlight that along PC2 the control sample from replicate 2 does more closely resemble the treated samples from all other replicates.*" width="768" />
+<p class="caption">
+<em>PCA on logCPM after performing CQN. Much of the variability previously seen in with replicate 5 has now been minimised, whilst replicate 2 still appears to be a considerable outlier. However, PC1 and PC2 now capture the biology in question, with vectors denoting the shift from vehicle to treatment shown as arrows shown in panel C. Panel B does highlight that along PC2 the control sample from replicate 2 does more closely resemble the treated samples from all other replicates.</em>
+</p>
+</div>
+<pre class="r"><code>dge$genes %&gt;%
+  dplyr::select(gene_id, ave_tx_len, gc_content) %&gt;%
+  mutate(
+    GC = cut(
+      x = gc_content,
+      labels = seq_len(10),
+      breaks = quantile(gc_content, probs = seq(0, 1, length.out = 11)),
+      include.lowest = TRUE
+    ),
+    Length = cut(
+      x = ave_tx_len,
+      labels = seq_len(10),
+      breaks = quantile(ave_tx_len, probs = seq(0, 1, length.out = 11)),
+      include.lowest = TRUE
+    ),
+    bin = paste(GC, Length, sep = &quot;_&quot;),
+    `pre-CQN` = pca$rotation[gene_id, &quot;PC1&quot;],
+    `post-CQN` = pcaPost$rotation[gene_id, &quot;PC1&quot;]
+  ) %&gt;%
+  pivot_longer(
+    cols = c(&quot;pre-CQN&quot;, &quot;post-CQN&quot;),
+    names_to = &quot;status&quot;,
+    values_to = &quot;value&quot;
+  ) %&gt;%
+  mutate(status = factor(status, levels = c(&quot;pre-CQN&quot;, &quot;post-CQN&quot;))) %&gt;%
+  group_by(status, GC, Length, bin) %&gt;%
+  summarise(
+    Size = n(),
+    mean = mean(value),
+    sd = sd(value),
+    t = t.test(value)$statistic,
+    p = t.test(value)$p.value,
+    FDR = p.adjust(p, method = &quot;bonf&quot;)
+  ) %&gt;%
+  ggplot(
+    aes(Length, GC, colour = t, alpha = -log10(FDR), size = Size)
+  ) +
+  geom_point() +
+  facet_wrap(~status) +
+  scale_colour_gradient2() +
+  scale_size_continuous(range = c(1, 10)) +
+  theme(
+    panel.grid = element_blank(),
+    legend.position = &quot;bottom&quot;
+  ) </code></pre>
+<div class="figure" style="text-align: center">
+<img src="figure/dge_analysis.Rmd/plotPCA_GC_post-1.png" alt="*Contributions of gene length and GC content to PC1 shown both before and after CQN. The strong patterns seen before normalisation have clearly been reduced. Fill colours indicate the t-statistic, with tranparency denoting significance as -log10(p), using Bonferroni-adjusted p-values. The number of genes in each bin is indicated by the circle size. The clear pattern across PC1 is unambiguous.*" width="960" />
+<p class="caption">
+<em>Contributions of gene length and GC content to PC1 shown both before and after CQN. The strong patterns seen before normalisation have clearly been reduced. Fill colours indicate the t-statistic, with tranparency denoting significance as -log10(p), using Bonferroni-adjusted p-values. The number of genes in each bin is indicated by the circle size. The clear pattern across PC1 is unambiguous.</em>
+</p>
+</div>
+<p>CQN clearly had a positive impact on the data, however, the exclusion of replicate 2 may still be an option. Given the consistency seen with the post-CQN PCA, using a blocking approach will also be the preferred analytic approach.</p>
+</div>
+</div>
+<div id="differential-expression-analysis" class="section level1">
+<h1>Differential Expression Analysis</h1>
+<div id="main-results" class="section level2">
+<h2>Main Results</h2>
+<p>A design matrix was formed giving each replicate it’s own baseline and the common DHT response was then specified as the final column. Following this, dispersions were estimated for the main <code>DGEList</code> object and the model fitted using the Quasi-likelihood GLM.</p>
+<pre class="r"><code>X &lt;- model.matrix(~0 + rep + treat, data = dge$samples) %&gt;%
+  set_colnames(str_remove(colnames(.), &quot;treat&quot;))
+dge &lt;- estimateDisp(dge, design = X, robust = TRUE)
+fit &lt;- glmQLFit(dge)</code></pre>
+<pre class="r"><code>alpha &lt;- 0.05
+lambda &lt;- log2(1.2)
+topTable &lt;- glmTreat(fit, coef = &quot;DHT&quot;, lfc = lambda) %&gt;%
+  topTags(n = Inf) %&gt;%
+  .[[&quot;table&quot;]] %&gt;%
+  as_tibble() %&gt;%
+  mutate(
+    location = paste0(seqnames, &quot;:&quot;, start, &quot;-&quot;, end, &quot;:&quot;, strand),
+    rankingStat = -sign(logFC)*log10(PValue),
+    signedRank = rank(rankingStat),
+    DE = FDR &lt; alpha
+  ) %&gt;%
+  dplyr::select(
+    gene_id, gene_name, logCPM, logFC, PValue, FDR, 
+    location, gene_biotype, entrezid, ave_tx_len, gc_content, 
+    rankingStat, signedRank, DE
+  )
+de &lt;- dplyr::filter(topTable, DE)$gene_id
+up &lt;- dplyr::filter(topTable, DE, logFC &gt; 0)$gene_id
+down &lt;- dplyr::filter(topTable, DE, logFC &lt; 0)$gene_id</code></pre>
+<p>In order to detect genes which respond to DHT the Null Hypothesis (<span class="math inline">\(H_0\)</span>) was specified to be a range around zero, instead of the conventional point-value.</p>
+<p><span class="math display">\[
+H_0: -\lambda \leq \mu \leq \lambda \\
+\text{Vs.} \\
+H_A: |\mu| &gt; \lambda
+\]</span></p>
+<p>This characterises <span class="math inline">\(H_0\)</span> as being a range instead of being the singularity 0, with <span class="math inline">\(\mu\)</span> representing the true mean logFC. The default value of <span class="math inline">\(\lambda = \log_2 1.2 = 0.263\)</span> was chosen. This removes any requirement for <em>post hoc</em> filtering based on logFC. Using this approach, 619 genes were considered as DE to an FDR of 0.05. Of these, 387 were up-regulated with the remaining 232 being down-regulated.</p>
+<pre class="r"><code>topTable %&gt;%
+  ggplot(aes(logCPM, logFC)) +
+  geom_point(
+    aes(colour = DE),
+    alpha = 0.5
+  ) +
+  geom_text_repel(
+    aes(label = gene_name, colour = DE),
+    data = . %&gt;%
+      dplyr::filter(logFC &gt; 2 | logFC &lt; -2),
+    show.legend = FALSE
+  ) +
+  geom_smooth(se = FALSE) +
+  scale_colour_manual(
+    values = c(&quot;grey50&quot;, &quot;red&quot;)
+  ) +
+  theme(
+    legend.position = &quot;none&quot;
+  )</code></pre>
+<div class="figure" style="text-align: center">
+<img src="figure/dge_analysis.Rmd/plotMA-1.png" alt="*MA plot with blue curve through the data showing the GAM fit. The curve for low-expressed genes indicated a potential bias remains in the data, whilst this is not evident for highly expressed genes. DE genes are highlighted in red.*" width="960" />
+<p class="caption">
+<em>MA plot with blue curve through the data showing the GAM fit. The curve for low-expressed genes indicated a potential bias remains in the data, whilst this is not evident for highly expressed genes. DE genes are highlighted in red.</em>
+</p>
+</div>
+<pre class="r"><code>topTable %&gt;%
+  ggplot(aes(logFC, -log10(PValue))) +
+  geom_point(
+    aes(colour = DE),
+    alpha = 0.5
+  ) +
+  geom_text_repel(
+    aes(label = gene_name, colour = DE),
+    data = . %&gt;%
+      dplyr::filter(abs(logFC) &gt; 2 | PValue &lt; 5e-10),
+    show.legend = FALSE
+  ) +
+  geom_vline(xintercept = c(-1,1), colour = &quot;blue&quot;, linetype = 2) +
+  labs(
+    y = expression(paste(-log[10], &quot;p&quot;))
+  ) +
+  scale_colour_manual(
+    values = c(&quot;grey50&quot;, &quot;red&quot;)
+  ) +
+  theme(
+    legend.position = &quot;none&quot;
+  )</code></pre>
+<div class="figure" style="text-align: center">
+<img src="figure/dge_analysis.Rmd/plotVolcano-1.png" alt="*Volcano plot showing significance against log fold-change. The common-use cutoff values for considering a gene as DE (|logFC| &gt; 1) are shown in blue as a guide only as these were not used for this analysis.*" width="960" />
+<p class="caption">
+<em>Volcano plot showing significance against log fold-change. The common-use cutoff values for considering a gene as DE (|logFC| &gt; 1) are shown in blue as a guide only as these were not used for this analysis.</em>
+</p>
+</div>
+<pre class="r"><code>topTable %&gt;%
+  dplyr::filter(DE) %&gt;%
+  dplyr::select(-DE, -gc_content, -ave_tx_len, -contains(&quot;rank&quot;)) %&gt;%
+  mutate(
+    across(c(&quot;logFC&quot;, &quot;logCPM&quot;), round, digits = 2)
+  ) %&gt;%
+  datatable(
+    rownames = FALSE, 
+    caption = glue(&quot;*All genes were considered as DE using the criteria of an FDR-adjusted p-value &lt; {alpha}.*&quot;)
+  ) %&gt;%
+  formatSignif(
+    columns = c(&quot;PValue&quot;, &quot;FDR&quot;),
+    digits = 3
+  )</code></pre>
+<div id="htmlwidget-413d6be50e81a7dc3d2e" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-413d6be50e81a7dc3d2e">{"x":{"filter":"none","caption":"<caption>*All genes were considered as DE using the criteria of an FDR-adjusted p-value &lt; 0.05.*<\/caption>","data":[["ENSG00000100003","ENSG00000165272","ENSG00000182795","ENSG00000164188","ENSG00000100906","ENSG00000186526","ENSG00000096060","ENSG00000128641","ENSG00000117009","ENSG00000136997","ENSG00000047644","ENSG00000143507","ENSG00000156284","ENSG00000213759","ENSG00000188064","ENSG00000174469","ENSG00000111666","ENSG00000177508","ENSG00000151790","ENSG00000079691","ENSG00000127663","ENSG00000135226","ENSG00000101298","ENSG00000241878","ENSG00000108932","ENSG00000152620","ENSG00000073282","ENSG00000175264","ENSG00000179841","ENSG00000169116","ENSG00000158125","ENSG00000176387","ENSG00000141384","ENSG00000176597","ENSG00000166068","ENSG00000085377","ENSG00000168502","ENSG00000110104","ENSG00000133424","ENSG00000146535","ENSG00000113645","ENSG00000139211","ENSG00000154734","ENSG00000005469","ENSG00000181418","ENSG00000184588","ENSG00000150594","ENSG00000160862","ENSG00000049759","ENSG00000169083","ENSG00000124224","ENSG00000198435","ENSG00000058600","ENSG00000166197","ENSG00000145569","ENSG00000214313","ENSG00000145703","ENSG00000165732","ENSG00000132382","ENSG00000017797","ENSG00000135899","ENSG00000142197","ENSG00000179104","ENSG00000134516","ENSG00000137709","ENSG00000164823","ENSG00000249956","ENSG00000107815","ENSG00000101846","ENSG00000188001","ENSG00000158050","ENSG00000167183","ENSG00000166387","ENSG00000109670","ENSG00000138829","ENSG00000275342","ENSG00000163884","ENSG00000130826","ENSG00000143153","ENSG00000147689","ENSG00000171617","ENSG00000157911","ENSG00000065183","ENSG00000121966","ENSG00000103460","ENSG00000204103","ENSG00000069974","ENSG00000120899","ENSG00000106541","ENSG00000130810","ENSG00000099860","ENSG00000179041","ENSG00000162817","ENSG00000124357","ENSG00000048162","ENSG00000151835","ENSG00000164574","ENSG00000155380","ENSG00000255774","ENSG00000144218","ENSG00000116337","ENSG00000250488","ENSG00000118965","ENSG00000137460","ENSG00000177398","ENSG00000151715","ENSG00000215110","ENSG00000167291","ENSG00000110660","ENSG00000078804","ENSG00000164938","ENSG00000261236","ENSG00000214252","ENSG00000274173","ENSG00000115758","ENSG00000071967","ENSG00000116133","ENSG00000121057","ENSG00000076716","ENSG00000121858","ENSG00000269516","ENSG00000280623","ENSG00000147642","ENSG00000047648","ENSG00000179094","ENSG00000144824","ENSG00000166833","ENSG00000145220","ENSG00000165271","ENSG00000196091","ENSG00000114767","ENSG00000150556","ENSG00000125629","ENSG00000137124","ENSG00000071282","ENSG00000156675","ENSG00000177192","ENSG00000148702","ENSG00000170577","ENSG00000182057","ENSG00000177606","ENSG00000135373","ENSG00000135821","ENSG00000104356","ENSG00000182957","ENSG00000155846","ENSG00000141738","ENSG00000132768","ENSG00000123572","ENSG00000120254","ENSG00000115556","ENSG00000157600","ENSG00000124762","ENSG00000115738","ENSG00000102780","ENSG00000162409","ENSG00000029725","ENSG00000198740","ENSG00000272622","ENSG00000112578","ENSG00000150687","ENSG00000112773","ENSG00000164442","ENSG00000163406","ENSG00000053108","ENSG00000104081","ENSG00000147100","ENSG00000232457","ENSG00000124209","ENSG00000134323","ENSG00000165689","ENSG00000131791","ENSG00000183111","ENSG00000154274","ENSG00000160145","ENSG00000145088","ENSG00000144815","ENSG00000151914","ENSG00000169750","ENSG00000113739","ENSG00000163811","ENSG00000146376","ENSG00000163659","ENSG00000106571","ENSG00000110107","ENSG00000170017","ENSG00000132437","ENSG00000081051","ENSG00000171004","ENSG00000071575","ENSG00000124784","ENSG00000157613","ENSG00000108244","ENSG00000106785","ENSG00000185133","ENSG00000067057","ENSG00000116717","ENSG00000116649","ENSG00000095585","ENSG00000170209","ENSG00000141736","ENSG00000041353","ENSG00000128294","ENSG00000130701","ENSG00000149218","ENSG00000177788","ENSG00000154783","ENSG00000182704","ENSG00000060971","ENSG00000261104","ENSG00000154153","ENSG00000111077","ENSG00000095739","ENSG00000116991","ENSG00000147224","ENSG00000198650","ENSG00000103222","ENSG00000068366","ENSG00000260228","ENSG00000125630","ENSG00000123728","ENSG00000131844","ENSG00000171444","ENSG00000134508","ENSG00000033170","ENSG00000117461","ENSG00000107731","ENSG00000204856","ENSG00000167721","ENSG00000064763","ENSG00000149292","ENSG00000204178","ENSG00000179431","ENSG00000148735","ENSG00000007545","ENSG00000136826","ENSG00000232677","ENSG00000197375","ENSG00000145860","ENSG00000162645","ENSG00000015133","ENSG00000082516","ENSG00000139146","ENSG00000151726","ENSG00000105835","ENSG00000261409","ENSG00000134574","ENSG00000163053","ENSG00000136141","ENSG00000091127","ENSG00000035664","ENSG00000158859","ENSG00000068615","ENSG00000164163","ENSG00000144840","ENSG00000176055","ENSG00000077348","ENSG00000041982","ENSG00000176641","ENSG00000127863","ENSG00000176842","ENSG00000148840","ENSG00000104369","ENSG00000115946","ENSG00000166446","ENSG00000136068","ENSG00000165912","ENSG00000139197","ENSG00000183569","ENSG00000242114","ENSG00000196756","ENSG00000125398","ENSG00000168118","ENSG00000247626","ENSG00000122176","ENSG00000124466","ENSG00000174705","ENSG00000233870","ENSG00000058668","ENSG00000140836","ENSG00000146197","ENSG00000151575","ENSG00000110328","ENSG00000168140","ENSG00000090487","ENSG00000165959","ENSG00000115963","ENSG00000161642","ENSG00000175602","ENSG00000086619","ENSG00000164543","ENSG00000181026","ENSG00000139116","ENSG00000196954","ENSG00000125508","ENSG00000145685","ENSG00000144452","ENSG00000116191","ENSG00000112208","ENSG00000259153","ENSG00000000457","ENSG00000142627","ENSG00000133316","ENSG00000123836","ENSG00000235713","ENSG00000117602","ENSG00000116141","ENSG00000189046","ENSG00000114790","ENSG00000136718","ENSG00000113916","ENSG00000079805","ENSG00000235092","ENSG00000064651","ENSG00000178607","ENSG00000180611","ENSG00000260573","ENSG00000158470","ENSG00000173145","ENSG00000105676","ENSG00000144369","ENSG00000101361","ENSG00000134802","ENSG00000243479","ENSG00000239880","ENSG00000180730","ENSG00000189007","ENSG00000173226","ENSG00000177191","ENSG00000117013","ENSG00000161179","ENSG00000188883","ENSG00000134258","ENSG00000130962","ENSG00000148843","ENSG00000132603","ENSG00000224785","ENSG00000080608","ENSG00000172175","ENSG00000114737","ENSG00000144228","ENSG00000229644","ENSG00000104419","ENSG00000116106","ENSG00000150990","ENSG00000076864","ENSG00000053524","ENSG00000125898","ENSG00000100304","ENSG00000136478","ENSG00000129667","ENSG00000123213","ENSG00000150672","ENSG00000172602","ENSG00000163938","ENSG00000135750","ENSG00000214706","ENSG00000109814","ENSG00000155438","ENSG00000135333","ENSG00000161638","ENSG00000138764","ENSG00000159216","ENSG00000144485","ENSG00000170927","ENSG00000120833","ENSG00000127995","ENSG00000185112","ENSG00000128059","ENSG00000151320","ENSG00000108179","ENSG00000181744","ENSG00000169184","ENSG00000153714","ENSG00000158747","ENSG00000154864","ENSG00000232044","ENSG00000117479","ENSG00000198093","ENSG00000169884","ENSG00000278540","ENSG00000198807","ENSG00000065485","ENSG00000166261","ENSG00000160208","ENSG00000083307","ENSG00000100644","ENSG00000140798","ENSG00000135763","ENSG00000227953","ENSG00000134575","ENSG00000215386","ENSG00000178896","ENSG00000139318","ENSG00000122034","ENSG00000004660","ENSG00000143367","ENSG00000162542","ENSG00000038427","ENSG00000215349","ENSG00000143333","ENSG00000107833","ENSG00000069509","ENSG00000113594","ENSG00000163704","ENSG00000182580","ENSG00000197043","ENSG00000159388","ENSG00000104936","ENSG00000176402","ENSG00000278041","ENSG00000143158","ENSG00000140416","ENSG00000196917","ENSG00000142207","ENSG00000275993","ENSG00000169047","ENSG00000074370","ENSG00000101384","ENSG00000178573","ENSG00000141441","ENSG00000090447","ENSG00000278921","ENSG00000166263","ENSG00000131188","ENSG00000168778","ENSG00000117394","ENSG00000154743","ENSG00000187210","ENSG00000256043","ENSG00000141543","ENSG00000136574","ENSG00000157193","ENSG00000162545","ENSG00000151503","ENSG00000130821","ENSG00000011028","ENSG00000184675","ENSG00000277161","ENSG00000140280","ENSG00000162433","ENSG00000138442","ENSG00000143324","ENSG00000241945","ENSG00000120594","ENSG00000188735","ENSG00000171208","ENSG00000129151","ENSG00000125895","ENSG00000182985","ENSG00000181444","ENSG00000181826","ENSG00000184564","ENSG00000111845","ENSG00000174804","ENSG00000234912","ENSG00000165905","ENSG00000133136","ENSG00000013588","ENSG00000033867","ENSG00000155893","ENSG00000164300","ENSG00000037897","ENSG00000145780","ENSG00000197358","ENSG00000069667","ENSG00000169598","ENSG00000084676","ENSG00000002834","ENSG00000156804","ENSG00000100100","ENSG00000139865","ENSG00000118894","ENSG00000143179","ENSG00000171631","ENSG00000149177","ENSG00000243701","ENSG00000261578","ENSG00000148459","ENSG00000120158","ENSG00000145912","ENSG00000275464","ENSG00000137575","ENSG00000174177","ENSG00000247271","ENSG00000156968","ENSG00000196950","ENSG00000281398","ENSG00000165175","ENSG00000166268","ENSG00000078401","ENSG00000138757","ENSG00000277363","ENSG00000187908","ENSG00000143797","ENSG00000126602","ENSG00000184304","ENSG00000228793","ENSG00000128829","ENSG00000110090","ENSG00000181458","ENSG00000248019","ENSG00000134247","ENSG00000005249","ENSG00000196372","ENSG00000186193","ENSG00000129116","ENSG00000198142","ENSG00000092421","ENSG00000170421","ENSG00000081189","ENSG00000232956","ENSG00000111846","ENSG00000157227","ENSG00000089127","ENSG00000162552","ENSG00000129625","ENSG00000204060","ENSG00000164692","ENSG00000166166","ENSG00000179958","ENSG00000070081","ENSG00000125454","ENSG00000049323","ENSG00000128512","ENSG00000137501","ENSG00000106799","ENSG00000167747","ENSG00000005884","ENSG00000160818","ENSG00000139793","ENSG00000105204","ENSG00000105879","ENSG00000203805","ENSG00000205413","ENSG00000138449","ENSG00000101444","ENSG00000246223","ENSG00000115053","ENSG00000166963","ENSG00000160193","ENSG00000124788","ENSG00000160712","ENSG00000183779","ENSG00000168234","ENSG00000257261","ENSG00000143061","ENSG00000232445","ENSG00000139946","ENSG00000102174","ENSG00000129514","ENSG00000196391","ENSG00000126249","ENSG00000189120","ENSG00000279233","ENSG00000173559","ENSG00000177565","ENSG00000240216","ENSG00000080546","ENSG00000146083","ENSG00000184916","ENSG00000222041","ENSG00000163359","ENSG00000264577","ENSG00000074582","ENSG00000137976","ENSG00000164309","ENSG00000168743","ENSG00000103264","ENSG00000187325","ENSG00000186187","ENSG00000177692","ENSG00000113430","ENSG00000169926","ENSG00000138778","ENSG00000091436","ENSG00000102554","ENSG00000162174","ENSG00000259345","ENSG00000143450","ENSG00000124787","ENSG00000173153","ENSG00000054118","ENSG00000133740","ENSG00000172594","ENSG00000196843","ENSG00000270179","ENSG00000245275","ENSG00000197208","ENSG00000138018","ENSG00000134987","ENSG00000105141","ENSG00000099812","ENSG00000225708","ENSG00000142178","ENSG00000113716","ENSG00000226745","ENSG00000141101","ENSG00000137266","ENSG00000204428","ENSG00000005893","ENSG00000138772","ENSG00000175928","ENSG00000090020","ENSG00000115468","ENSG00000165724","ENSG00000162139","ENSG00000136205","ENSG00000124493","ENSG00000134291","ENSG00000111961","ENSG00000175985","ENSG00000236088","ENSG00000102221","ENSG00000104228","ENSG00000250148","ENSG00000244468","ENSG00000151576","ENSG00000121270"],["SEC14L2","AQP3","C1orf116","RANBP3L","NFKBIA","CYP4F8","FKBP5","MYO1B","KMO","MYC","WWC3","DUSP10","CLDN8","UGT2B11","WNT7B","CNTNAP2","CHPT1","IRX3","TDO2","CARMIL1","KDM4B","UGT2B28","SNPH","PISD","SLC16A6","NADK2","TP63","CHST1","AKAP5","PARM1","XDH","HSD11B2","TAF4B","B3GNT5","SPRED1","PREP","MTCL1","CCDC86","LARGE1","GNA12","WWC1","AMIGO2","ADAMTS1","CROT","DDN","PDE4B","ADRA2A","AZGP1","NEDD4L","AR","PPP4R1L","NRARP","POLR3E","NOLC1","OTULINL","AZGP1P1","IQGAP2","DDX21","MYBBP1A","RALBP1","SP110","DOP1B","TMTC2","DOCK2","POU2F3","OSGIN2","UGT2B24P","TWNK","STS","TPRG1","DUSP2","PRR15L","PPFIBP2","FBXW7","FBN2","PRAG1","KLF15","DKC1","ATP1B1","FAM83A","ENC1","PEX10","WDR3","CXCR4","TOX3","MAFB","RAB27A","PTK2B","AGR2","PPAN","GADD45B","RRS1","C1orf115","NAGK","NOP16","SACS","GALNT10","SLC16A1","LINC02747","AFF3","AMPD2","LINC02233","WDR35","FHDC1","UMODL1","TMEM45B","UGT2B25P","TBC1D16","SLC35F2","TP53INP2","TP53INP1","BOP1","AZGP1P2","AL035661.1","ODC1","CYBRD1","DHCR24","AKAP1","GPC4","TNFSF10","CYP4F23P","PCAT14","SYBU","ARHGAP6","PER1","PHLDB2","NAV2","LYAR","NOL6","MYBPC1","RRP9","LYPD6B","INSIG2","ALDH1B1","LMCD1","RAB11FIP1","PUS1","HABP2","SIX2","OGFRP1","JUN","EHF","GLUL","POP1","SPATA13","PPARGC1B","GRB7","DPH2","NRK","MTHFD1L","PLCD4","TMEM164","CDKN1A","ID2","DGKH","PRKAA2","RABEP1","ZNF652","AC010735.2","BYSL","PRSS23","TENT5A","CITED2","SLC15A2","FSTL4","BMF","SLC16A2","SLC16A6P1","RAB22A","MYCN","ENTR1","PRKAB2","ARHGEF37","C4orf19","KALRN","EAF2","NXPE3","DST","RAC3","STC2","WDR43","ARHGAP18","TIPARP","GLI3","PRPF19","ALCAM","DDC","AFP","HS6ST2","TRIB2","RIOK1","CREB3L1","KRT23","TRIM14","INPP5J","PFKP","GADD45A","SRM","BLNK","ANKK1","ERBB2","RAB27B","TPST2","RBBP8NL","ENDOD1","AL162595.1","FGD5","TSKU","ACAA1","AC093904.4","RETREG1","TNS2","BAMBI","SIPA1L2","PRPS1","TAT","ABCC1","ACSL4","AC009119.1","POLR1B","RAP2C","MCCC2","MCC","CABLES1","FUT8","PIK3R3","UNC5B","FAM216A","TSR1","FAR2","TTC12","MACO1","FJX1","PLEKHS1","CRAMP1","KLF4","LINC00665","SLC22A5","RNF145","GBP2","CCDC88C","GEMIN5","SINHCAF","ACSL1","NAMPT","AL035425.3","DDB2","SLC16A14","LRCH1","PUS7","DAPK2","ADAMTS4","REEP1","ABCE1","RABL3","MBLAC2","EXOSC5","TNC","RNF152","TNFRSF19","IRX5","PPRC1","JPH1","PNO1","CDYL2","FLNB","PACSIN3","PEX5","SERHL2","MTFP1","SNHG17","SOX9","RAB4A","MARS2","FMOD","LYPD3","SH3PXD2B","AC007881.1","ATP2B4","ZFHX3","SCUBE3","TEX9","GALNT18","VASN","SPG21","CLMN","RND3","ZNF385A","CCDC85B","ERO1B","STK17A","AEN","KIF21A","CASP4","SRMS","LHFPL2","ABCA12","RALGPS2","BAG2","AC004816.1","SCYL3","EPHA2","WDR74","PFKFB2","AC004522.2","RCAN3","MARK1","ALKBH2","ARHGEF26","IMP4","BCL6","DNM2","ID2-AS1","SLC12A2","ERN1","MB21D2","AC007493.1","B4GALT5","NOC3L","ARMC6","FAM171B","NOP56","SLC43A3","MNX1-AS1","RALBP1P1","SHISA2","ADAT2","IQCB1","B3GNT8","KCNQ4","YDJC","KLRG2","VTCN1","PRRG1","PDCD11","NIP7","AC006026.1","PUM3","MALT1","CISH","SPOPL","NAMPTP1","NDRG1","EPHA4","DHX37","RAP1GAP","MCF2L2","FAM110A","TTLL12","TEX2","RHBDF2","NLN","DLG2","RND1","GNL3","KCNK1","IFRD2","UGDH","NIFK","EPHA7","ITGA5","CCNG2","RUNX1","HES6","PKHD1","SOCS2","CASD1","FAM43A","PPAT","AKAP6","PPIF","DIPK2A","MN1","LURAP1L","NBL1","PIEZO2","SILC1","SLC19A2","ZNF649","WNT10B","ACACA","PAX9","PDIA5","ZNF202","RRP1B","GRHL2","HIF1A","ABCC12","URB2","LINC01341","ACP2","MIR99AHG","EXOSC4","DUSP6","GTF3A","CAMKK1","TUFT1","TMCO4","VCAN","MRPL3P1","RGS16","NPM3","FUNDC1","LIFR","PRRT3","EPHB3","ANXA6","BTG2","DMPK","GJC3","AL133325.3","MPC2","TPM1","HCAR1","URB1","SIK1B","IRS1","ATP2A3","JAG1","MAF","GAREM1","TFAP4","EPB41L4A-DT","STXBP4","PRR7","TCTN2","SLC2A1","TSEN2","GCNT1","CTSO","EIF4A3","GATA4","LRP8","CAMK2N1","NCAPD3","SLC6A8","MRC2","AMER1","PIGW","LYSMD2","AK4","WDR12","XPR1","PWP2","PLXDC2","TMEM120B","NETO2","BBOX1","TMEM74B","CADM1","ZNF467","RELL1","SLITRK6","PAK1IP1","FZD4","SNHG20","LARGE2","GNG5P2","GPRC5A","SLC4A7","PXYLP1","SERINC5","METTL1","FEM1C","BNIP3P1","RORA","DFFB","NCOA1","LASP1","FBXO32","PIK3IP1","TTC6","EEF2KMT","UCK2","P2RY6","PTPRJ","DUBR","AP003119.3","PDSS1","RCL1","NHP2","FP565260.1","SDCBP","CTU2","ZBED5-AS1","MPV17L","SLC39A10","SNHG4","MID1IP1","MYRFL","EDN1","G3BP2","SRCIN1","DMBT1","MBOAT2","TRAP1","PRKD1","AL033523.1","EIF2AK4","CPT1A","TMEM45A","FAM13A-AS1","PTGFRN","PRKAR2B","ASB13","SAPCD2","PALLD","SOWAHC","SEMA6A","KRT8","MEF2C","SNHG15","GCNT2","MMP14","OAS1","WNT4","REEP5","FOXO6","COL1A2","TRMT61A","DCTPP1","NUCB2","SLC25A19","LTBP1","DOCK4","SYTL2","TGFBR1","C19orf48","ITGA3","GPATCH4","MBNL2","DYRK1B","CBLL1","PLPP4","SAMD9","SLC40A1","AHCY","LINC01550","NCL","MAP1A","WDR4","ATXN1","IL6R","ZNF703","TTC39C","AC008014.1","IGSF3","EMSLR","PELI2","PHEX","FOXA1","ZNF774","PDCD2L","SP6","AC122688.3","NABP1","TBL1XR1","CPHL1P","SESN1","RNF44","JAG2","CYTOR","COL6A3","AC010761.1","BCS1L","DNASE2B","CMYA5","NPNT","FBXO31","TAF9B","ZNRF1","DNAJC28","IRX4","KLF13","CENPE","MAP3K20","KLF5","ASRGL1","AC013652.1","OAZ3","RPP40","ESRRA","THRAP3","E2F5","SMPDL3A","ARID5A","AP002840.2","SAP30L-AS1","SLC22A4","SELENOI","WDR36","CASP14","MISP","AL354984.2","SIK1","HMGXB3","OAZ1P1","NOB1","SLC22A23","LY6G5C","LAMP2","ANXA3","LRRN1","SLC9A1","EFHD1","ZMYND19","NEU3","TNS3","GRM4","TMEM106C","SASH1","PLEKHD1","COX10-AS1","JADE3","TRIM35","KRT8P31","AC093001.1","QTRT2","ABCC11"],[7.47,7.68,4.16,4.51,7.68,4.62,7.76,4.99,5.7,6.48,8.41,5.26,4.88,3.25,5.93,6.75,6.36,7.62,6.8,6.09,6.84,2.26,7.16,6.16,8.18,6.61,2.37,5.8,5.82,5.15,4.59,4.21,2.26,5.16,7.23,6.69,4.19,5.67,6.34,7.92,6.96,6.23,5.56,5.08,2.18,5.26,1.93,9.6,6.7,8.55,2.73,6.23,6.8,8.1,2.97,7.07,5.65,7.82,5.37,6.59,5.03,6.82,5.36,3.12,5.16,7.5,0.6,4.76,7.53,2.82,3.92,7.21,6.5,7.02,2.48,5.27,2.15,8.98,6.55,2.4,4.75,4.9,6.26,4.05,5.85,6.95,5.33,4.11,8.66,3.61,4.3,6.1,6.81,6.99,4.84,4.01,8.29,3.84,3.04,2.78,5.5,2.94,4.24,4.67,2.82,7.63,0.68,8.13,4.81,4.79,6.53,7.19,1.25,3.08,6.7,6.41,10.21,5.75,4.01,3.91,2.48,1.5,3.58,2.86,4.17,2.6,2.41,4.67,6.85,1.41,5.2,3.93,7.02,4.68,4.99,5.45,5.15,1.7,8.21,3.88,5.13,9.31,6.99,5.7,5.49,4.01,6.04,5.6,6.17,4.44,4.01,6.38,4.61,8.03,6.9,5.07,7.09,7.14,2.56,5.28,6.11,5,7.09,3.13,2.49,3.6,6.22,3.91,7.2,1.65,6.37,4.92,5.25,5.35,2.92,3.97,5.37,5.52,6.29,4.29,6.1,4.71,5.41,6.22,8.23,8.16,2,0.73,5.95,5.87,5.12,3.61,1.56,5.49,6.05,6.79,4.45,7.11,3.96,2.7,9.96,7.33,5.62,3.71,3.23,6.46,3.27,8.39,5.9,1.88,3.12,4.39,4.97,7.32,5.81,2.38,5.42,1.97,1.26,6.08,7.36,8.1,5.69,5.54,7.24,7.98,6.14,3.48,5.43,3.03,5.96,6.3,5.24,2.59,5.15,4.48,5.04,5.54,3.12,2.85,4.77,5.63,5.62,8.9,4.7,4.43,4.52,6.28,6.09,4.53,3.12,3.34,4.51,7.18,6.45,4.05,4.98,8.9,5.6,1.33,7.38,6.15,4.93,5.1,5.18,7.36,5.53,5.87,1.92,3.53,5.58,3.46,7.11,4.54,6.39,5.66,2.62,2.87,6.34,6.28,1.55,7.33,3.61,5.09,7.77,5.71,5.78,6.84,5.75,4.18,4.88,5.68,6,3.91,4.69,2.72,7.37,6.39,2.64,4.13,5.52,2.96,5.19,5.49,1.15,4.54,1.3,4.91,5.75,6.65,4.34,8,3.17,6.72,5.62,4.95,3.02,5.73,5.15,6.24,1.19,8.09,6.17,3.26,1.99,2.08,2.93,4.91,2.44,1.55,6.08,4.69,2.6,3.53,6.4,5.05,2.2,4.82,5.43,5.51,7.19,3.66,7.51,5.57,5.77,7.59,2.55,6.89,8.53,8.4,4.71,5.54,0.75,5.11,7.65,5.15,6.52,6.03,5.55,1.79,0.97,7.67,6.71,6.19,1.06,6.08,7.18,4.15,5.27,2.26,7.22,4.14,0.7,2.65,7.68,0.92,5.37,5.59,4.61,2.19,7.32,4.68,5.34,4.34,5.9,7.28,6.83,3.01,5.96,2.5,5.66,1.84,6.06,7.39,7.77,2.14,6.24,4.73,1.38,3.64,1.56,5.03,5.25,1.83,4.34,6.14,7.87,6.91,5.13,2.89,2.16,7.08,6.37,5.6,5.78,1.21,6.5,3.31,5.31,1.89,4.45,4.44,2.44,5.4,4.26,2.66,6.57,3.72,2.38,3.73,8.05,2.98,6.57,7.1,7.77,6.63,4.13,3.59,4.87,3.46,6.97,5.95,6.72,5.08,1.74,4.15,7.44,1.98,1.9,4.02,5.68,3.4,4.01,5.22,6.29,3.15,2.05,3.33,5.83,5.22,4.17,4.75,4.45,6.22,5.77,4.11,4.07,5.52,8.19,5.62,3.24,4.63,3.8,6.88,5.08,5.83,3.33,4,3.8,4.31,5.36,4.94,6.33,4.06,2.52,5.66,4.9,2.46,6.06,2.33,3.52,8.43,5.08,3.51,7.42,6.87,1.85,3.71,7.13,4.8,1.36,2.61,5.86,2.3,3.75,8.28,3.82,4.83,0.96,8.77,2.18,5.46,3.69,1.05,3.5,2,9.19,3.88,1.45,5.21,7.51,5.63,6.07,4.79,4.51,4.55,4.04,7.28,7.05,6.6,3.62,5.26,4.29,5.86,2.47,8.72,8.92,1.46,9.76,1.08,4.32,5.98,3.82,5.81,3.08,0.74,6.67,1.43,1.88,0.95,8.93,1.81,3.46,6.84,1.86,4.48,8.22,2.57,4.93,4.96,7.08,4.48,1.93,1.71,5.45,1.22,4.22,7.38,4.91,5.89,5.2,1.23,3.94,4.22,6.18,6.75,2.6,2.13,1.13,3.53,4.25,5.38,7.89,4.13,5.81,3.83,1.94,3.06,2.59,7.05,6.18,3.3,1.08,2.46,1.05,6.63,4.9,4.7,5.7,2.17,7.61,1.49,5.08,6.32,7.12,7.19,5.54,4.67,5.71,8.13,7.75,2.63,3.21,6.34,3.63,1.47,5.73,5.05,7.91],[5.37,4.07,3.24,4.21,1.85,5.32,2.05,2.38,-1.56,1.84,1.57,1.69,3.13,4.4,2.18,1.15,1.56,1.14,-1.63,1.36,1.08,5,-1.32,1.07,1.12,1.17,-2.59,-1.14,1.06,1.1,-1.57,1.32,1.66,-1.19,0.86,1.23,1.19,1.26,1.05,0.87,0.99,-1.15,1.45,1.54,1.73,-1.1,1.95,1.01,0.88,-0.91,-2.65,0.98,0.91,0.82,1.56,1.19,1.46,0.82,0.9,0.8,-0.89,0.97,0.94,-2.1,-0.96,-0.84,5.72,0.83,-0.88,-1.89,1.18,1.03,-1,-0.86,-1.56,1.11,1.65,0.88,1.02,-1.52,-0.89,0.89,0.8,-1.54,1.05,0.99,0.98,1.05,-0.97,0.92,0.84,0.8,-0.97,0.83,1.07,0.91,-0.93,1.16,-1.44,1.49,0.73,-2.34,0.85,0.87,-1.51,0.71,3.74,0.85,0.81,-0.82,-0.73,0.65,1.49,-0.94,0.64,-0.73,0.73,0.8,-0.88,-0.89,1.58,1.67,1.24,1.12,0.88,-1.22,1.19,0.77,0.69,3.51,0.85,-0.93,-0.69,0.76,-0.68,1.07,0.74,-1.97,-0.74,0.83,0.84,0.88,0.69,0.68,0.77,1.11,-0.64,0.75,0.67,0.78,-0.85,0.74,-0.8,-0.83,0.62,0.73,-0.6,0.83,-1.1,0.7,0.62,0.65,0.76,1.05,-1.01,-1.15,-0.64,1.19,-0.72,-1.54,0.69,0.79,0.68,-0.77,-0.9,0.97,0.7,-0.8,0.61,1.15,0.76,0.81,0.74,-0.9,0.65,0.81,1.45,-2.51,0.62,-0.69,0.64,-1.08,-1.93,0.7,-0.62,0.59,0.79,0.63,-0.71,1.16,-0.6,-0.61,-0.63,-0.8,0.88,0.69,-0.91,0.54,0.72,-1.8,0.85,-0.69,-0.77,-0.79,0.65,1.21,0.62,1.08,-1.2,0.61,-0.63,0.7,-0.79,-0.62,-0.6,-0.61,0.75,0.88,0.59,1.09,0.59,-0.6,0.76,-0.87,0.64,0.84,0.62,0.56,0.8,-1.24,0.73,0.62,0.68,0.63,0.64,-0.61,-0.75,-0.65,0.61,0.63,-0.77,-0.75,-0.6,0.53,-0.61,0.79,0.66,-0.8,-0.78,1,0.54,0.53,0.72,0.58,-0.66,0.62,-0.62,0.57,0.87,0.93,0.57,-0.82,0.56,0.74,-0.73,-0.64,0.83,0.89,-0.54,0.59,-1.3,-0.58,0.74,-0.59,0.52,0.67,0.78,-0.63,0.6,0.65,-0.59,0.65,0.61,-0.61,0.83,-0.75,-0.7,-0.54,1.09,-0.63,-0.54,0.87,0.56,0.63,1.22,-0.6,-1.16,0.66,0.52,0.58,0.91,0.58,-0.69,-0.56,0.84,-0.63,-0.73,0.58,0.64,0.52,-1.13,0.49,0.56,0.85,0.94,-1.22,0.77,0.56,-0.86,1.06,0.58,0.66,-0.82,0.63,0.53,0.55,0.75,0.59,0.56,-0.54,-0.58,0.63,1.21,-1.25,0.52,0.5,-0.83,-0.53,0.58,0.55,0.63,0.52,-1.17,-0.53,0.54,0.62,0.59,0.8,0.57,0.96,-1.2,-0.58,0.62,0.6,1.14,0.56,0.65,-0.79,0.56,-0.78,0.49,0.61,-1.44,-0.76,0.67,-1.39,-0.58,0.58,0.55,0.84,0.57,-0.62,0.52,0.61,0.48,0.53,0.56,1,0.6,-0.95,-0.61,-0.98,0.59,-0.6,0.57,0.99,0.51,-0.55,-1.62,0.61,1,0.55,-0.65,1.16,-0.67,-0.5,-0.48,-0.53,-0.52,0.95,0.93,0.95,0.51,-0.49,0.54,0.87,-0.58,-0.64,0.72,-1.17,-0.51,0.72,-0.97,0.61,0.57,-0.69,0.48,0.61,0.88,-0.76,0.48,0.66,0.56,-0.56,0.6,0.52,0.57,0.67,0.57,0.7,0.49,0.54,-0.55,0.52,-0.85,0.52,0.49,-1.06,-0.95,0.55,-0.5,-0.8,-0.82,0.62,0.48,0.68,0.9,0.72,0.59,0.62,0.55,0.58,0.61,-0.48,0.63,0.58,0.62,0.56,-0.46,0.55,-0.59,-0.67,0.56,0.46,-0.54,0.49,0.62,0.63,0.64,0.62,0.48,0.51,-0.5,0.53,-0.8,1.01,0.57,0.93,0.5,-0.88,-0.9,0.63,-0.59,-0.73,0.48,0.64,-0.8,0.55,0.53,-0.53,-1,0.72,-0.49,0.82,0.61,0.49,-0.58,0.57,-1.03,-0.43,-0.7,0.8,-0.55,-1.01,-0.6,0.89,-0.48,-0.57,-1.16,0.69,0.49,-0.54,0.49,-0.53,0.7,-0.85,-0.56,0.44,-0.47,0.45,-0.58,-0.53,0.61,0.49,-0.64,-0.78,0.54,-0.94,0.47,-1,0.51,-0.58,0.62,0.6,0.55,-1.13,-0.44,0.94,-0.98,-0.96,-0.71,-0.92,0.56,0.56,0.73,0.57,-0.46,-0.93,-0.52,0.65,0.43,-0.65,-1.41,0.78,0.46,1.36,-0.59,-0.51,0.51,-0.62,0.59,-0.84,0.5,0.52,-0.56,-0.46,0.8,0.73,-0.98,-0.55,0.52,0.53,0.42,0.49,0.46,-0.55,0.73,-0.85,0.57,0.42,0.5,-0.83,-1.14,-0.85,0.76,0.44,-0.78,0.56,0.47,-0.7,-0.42,-0.92,-0.6,-0.5,0.44,0.47,0.46,0.56,-0.46,-0.43,0.59,0.69,0.69,-0.49,0.49,-0.79,-0.53,0.59,0.54],[1.18602039058834e-13,4.48563755974351e-12,6.42990169705023e-12,1.2499883983274e-11,1.72620035623778e-11,2.46758617503664e-11,6.63477265359565e-11,2.04273731855341e-10,2.1758634619496e-10,2.17808680211402e-10,3.92798758175258e-10,3.9798144168397e-10,7.48438418673856e-10,9.51323695916148e-10,1.40226618247287e-09,4.26858047966548e-09,5.61111448947388e-09,8.24754906096329e-09,8.44924071582183e-09,1.02052290932108e-08,1.04506549135444e-08,1.12151854662768e-08,1.48994300220433e-08,1.75646280746969e-08,2.2653165423135e-08,2.33670714927161e-08,2.70166036357015e-08,2.94358387586219e-08,2.96584179969182e-08,3.36464407088755e-08,3.42247871174136e-08,3.47707978662209e-08,3.47855305829745e-08,4.33859662800159e-08,5.25368514851637e-08,5.84677881562244e-08,6.25924404402862e-08,6.5930875156344e-08,6.66428114173528e-08,6.67375571842538e-08,7.48563644041588e-08,8.72030881482344e-08,9.08037790693324e-08,9.46020274480125e-08,1.00275076974576e-07,1.04548726713071e-07,1.19775134984862e-07,1.60623702446314e-07,1.65271853690878e-07,1.68584670993504e-07,1.91852027506029e-07,1.96407574737922e-07,1.97231015246224e-07,2.17261906154342e-07,2.21382116754691e-07,2.47459555248021e-07,2.76793748601224e-07,2.82295005468644e-07,2.98574486353349e-07,3.03530742638704e-07,3.2813126022039e-07,3.83717853395315e-07,4.03748642988982e-07,4.10326983455428e-07,4.28618342627579e-07,4.38186413663221e-07,4.97205292559244e-07,4.99401677630759e-07,5.0941765804188e-07,5.51174410723768e-07,5.62853131135441e-07,6.49314130080676e-07,7.11515514325907e-07,7.36919121529529e-07,7.76854961432096e-07,7.81809544038542e-07,7.96559299277892e-07,8.39491201310825e-07,8.45037623874294e-07,8.5218279709139e-07,9.38646369474715e-07,9.56697768538311e-07,9.73409970552476e-07,1.05870376629134e-06,1.08770545973107e-06,1.09834187623097e-06,1.11053195328408e-06,1.19044940304696e-06,1.19183903234783e-06,1.27256288430355e-06,1.33256328663429e-06,1.42880909412166e-06,1.49603111494885e-06,1.53048444285342e-06,1.56626520554509e-06,1.5766171559572e-06,1.58430316871652e-06,1.58712771704214e-06,1.62906661347751e-06,1.69071972774885e-06,1.79169368484569e-06,2.0902326718573e-06,2.09528198978262e-06,2.15955178086629e-06,2.21573123541478e-06,2.29435339538479e-06,2.38977652938394e-06,2.4839659317698e-06,2.49747565044781e-06,2.5522535383402e-06,2.61249390275099e-06,2.71579612177089e-06,2.75570057778657e-06,2.76378230157207e-06,2.81521157669126e-06,2.91373823441171e-06,2.95467153139602e-06,3.09387110815353e-06,3.44056216851545e-06,3.5856502535045e-06,3.63286722989659e-06,3.69282897717724e-06,3.71073640615675e-06,3.9019596955828e-06,3.91258161802418e-06,4.06841126829824e-06,4.07310457488361e-06,4.23323624187362e-06,4.35461297427035e-06,4.69460302930528e-06,5.00227104142119e-06,5.16537704930667e-06,5.20301120584664e-06,5.24658869948004e-06,5.52885084491864e-06,5.60543780720249e-06,5.66404089251643e-06,6.11563328940627e-06,6.12567320201473e-06,6.38904571116333e-06,6.41804018543536e-06,6.6858361739027e-06,6.79150786049679e-06,6.89410588192992e-06,6.95112924980182e-06,7.0156942119153e-06,7.64485364309193e-06,8.33756991493008e-06,8.48976150226315e-06,8.82398238194042e-06,8.95388953476361e-06,9.36410512931697e-06,9.40142562358569e-06,9.46816380727925e-06,9.682968902442e-06,9.903715438441e-06,9.99856184738211e-06,1.00682748627889e-05,1.02620751839219e-05,1.03684624173598e-05,1.05036247020182e-05,1.05075912426954e-05,1.05181836146924e-05,1.07563979664586e-05,1.10430047429837e-05,1.12803134902482e-05,1.13801945892828e-05,1.16279564879307e-05,1.19366872792037e-05,1.19550366388867e-05,1.20126524436652e-05,1.32728963578599e-05,1.40564862472659e-05,1.41291615462282e-05,1.52029623025054e-05,1.60164816229791e-05,1.61344217982997e-05,1.68414360536608e-05,1.6868935584168e-05,1.70449524999538e-05,1.7270451142117e-05,1.84743067025392e-05,1.875011372534e-05,1.8958627291477e-05,1.90262547923326e-05,1.95680620018184e-05,1.97447144753908e-05,2.04016239286475e-05,2.09719271416544e-05,2.11392188423587e-05,2.14080254746146e-05,2.22800026036213e-05,2.23173818308779e-05,2.25320911300987e-05,2.26900732803899e-05,2.31009412116884e-05,2.38385544336373e-05,2.50929812654116e-05,2.52863604610832e-05,2.54473916729746e-05,2.60364031941842e-05,2.61976039227848e-05,2.65062440068117e-05,2.7381550683768e-05,2.7408621088122e-05,2.76865205795961e-05,2.81377519460482e-05,2.82801242250764e-05,2.85325782507694e-05,2.87313357028201e-05,2.88286632085053e-05,2.96185404719351e-05,3.00992126727313e-05,3.02029163349566e-05,3.35645700644265e-05,3.36798958891144e-05,3.48082585175182e-05,3.49802452172874e-05,3.51697090580336e-05,3.65074155509272e-05,3.70154973251813e-05,3.72036619570288e-05,3.73761134945881e-05,3.81804395530019e-05,3.86667702282117e-05,3.91540949250948e-05,3.9612377607889e-05,3.99360091021683e-05,4.19262448149447e-05,4.23009274796094e-05,4.24024519386984e-05,4.31638651979393e-05,4.32598824875973e-05,4.37875516329083e-05,4.42393222549282e-05,4.43914851028148e-05,4.5293524007605e-05,4.59543597843031e-05,4.65944854476671e-05,4.76242969054093e-05,4.77378460956983e-05,4.8084688177064e-05,5.19704369659151e-05,5.19867817750444e-05,5.24112368989489e-05,5.3874068181716e-05,5.4416544911436e-05,5.5848727371185e-05,5.90608880948446e-05,5.95034022436344e-05,5.95737855474308e-05,6.07602911839454e-05,6.12225568113544e-05,6.17984061701973e-05,6.31602219260664e-05,6.34488620963298e-05,6.36045626674384e-05,6.47898003828281e-05,6.6344447904656e-05,6.72532965218445e-05,6.73137447451647e-05,6.7358729403596e-05,6.78533957662205e-05,6.87607242661237e-05,6.91122795054293e-05,6.92850262884267e-05,7.01854044059238e-05,7.23481937468775e-05,7.37965162084331e-05,7.37993793418171e-05,7.85356559126513e-05,7.85814101899537e-05,7.98760827486792e-05,8.04553974335888e-05,8.08807109855206e-05,8.17163046558361e-05,8.27033180355433e-05,8.30997136360812e-05,8.31999796203497e-05,8.35955108514087e-05,8.46169118023912e-05,8.4955527385223e-05,8.53632093713833e-05,8.80026033876775e-05,9.03521027976765e-05,9.0382952848441e-05,9.35823025825932e-05,9.39204833034557e-05,9.6076815403095e-05,9.63058423768549e-05,9.89146179373954e-05,0.000100456628097622,0.000100729820599391,0.000101246434797602,0.000101265123966105,0.000101430757282578,0.00010332934462776,0.000104685791671401,0.000105280940289082,0.00010598847192567,0.000107207364013682,0.000107656875836545,0.000108221511132599,0.000108854043500674,0.00010927736452575,0.000110770181999698,0.00011330926908163,0.000113694612323904,0.000115103120706774,0.000115183041361397,0.000115243641016968,0.000117805369837403,0.000119760012437221,0.000119968282211963,0.000121857131959976,0.00012326688886278,0.000123744168206521,0.000124215609182807,0.000124250202834658,0.000125637702437248,0.000127152786296773,0.000127699285929263,0.000129593462816092,0.000132949638482344,0.00013375523682735,0.000135001681238587,0.000136526190425547,0.000137484825704087,0.000138996455731886,0.000140268184177162,0.000141872219308838,0.000142112800125498,0.000142195023318864,0.000142743668403721,0.000144485541123792,0.000144712303805963,0.000145964743672326,0.000149004489603439,0.000149404411747886,0.000149482552502155,0.000150531246715938,0.000153542711145214,0.000153814436300758,0.000158676521301909,0.000159596130280909,0.000159987973758625,0.000160199747293561,0.00016171721459512,0.000169187382821196,0.000170535248318608,0.000177915328117313,0.000178451581234601,0.000180187483509363,0.000182802009973014,0.000185876837616236,0.000187247353155063,0.000188613249398271,0.000192026426475563,0.000193888851390925,0.000193954237408267,0.000196241082988211,0.000196306702938584,0.000196459039058035,0.000197082007928975,0.000200059053243625,0.000200317618610912,0.000200536931945553,0.000201195947437696,0.000207939569147945,0.00020823771714761,0.000211564602789596,0.000211807419181771,0.000216042054964823,0.000217554114856367,0.000217640384277107,0.000219705332652924,0.00021998457354754,0.000222083383097992,0.000224835671761469,0.000224973246837745,0.000225127461636359,0.000228052414069135,0.000228791938663494,0.000230354712787125,0.000232292025027194,0.000233436678328813,0.000233781730089717,0.000237251200754002,0.000238872753410297,0.000244085187392963,0.00024753276981737,0.000249004041923852,0.000249913638365925,0.000253990892334015,0.00025427146457407,0.000254610241654858,0.000255446947673433,0.000258100275307115,0.000266918287755546,0.00026700596163456,0.000276307121002583,0.000277417299203799,0.000278196890364811,0.000279493645769003,0.000282420618470958,0.000288017675511616,0.00028837930114692,0.000297669098689099,0.000298761790266155,0.000304559487723878,0.000304644196542279,0.000307301632525852,0.000307393311245265,0.000307999506403837,0.000309264565970463,0.000309778855488424,0.000309790492865504,0.000314346881926272,0.000315720517500355,0.000315736779042042,0.000316748271884008,0.000328964160082639,0.000336162033555033,0.000336513840439934,0.000341851116597946,0.000343072683092171,0.000344511626620493,0.000344894506150211,0.00035259126261654,0.000355690696609029,0.000358114080824255,0.000358389364523853,0.000371694947012544,0.000376844426470086,0.000377063214197328,0.000386518190239467,0.000396591497333259,0.000397110745093891,0.000398039377735202,0.000398618410692725,0.000406238498907176,0.000406369719017039,0.000407540338015007,0.000415713534172908,0.00042797187294624,0.000428716581169341,0.000431756818481097,0.00043374044269602,0.000438024265440909,0.000441809252371259,0.000447443031042978,0.000448487283517027,0.000448496066508088,0.000448832347627325,0.000455283479611808,0.000456025265540196,0.000460684439813251,0.00046195224469259,0.00046517129950675,0.000472626104953189,0.000474531569654543,0.000479880474526906,0.000486103034897643,0.000490211471429985,0.00049473724499716,0.000495616304969372,0.000499866412472575,0.000501147490990461,0.000503148860713532,0.000531158929952801,0.000535787719240154,0.000542378036241685,0.000552649059249447,0.000553381846039788,0.000562767736090797,0.000570374976836143,0.000588318234586236,0.000591921387797189,0.000592651062516582,0.000597506084577185,0.00060100316996412,0.000602651001187821,0.000603659004935693,0.000604018358308484,0.000609667687036007,0.000628724681481386,0.000634311450037522,0.000662468882260147,0.000681039355632796,0.000684371979976235,0.000696021996565716,0.00070045960625395,0.000702871772062965,0.000713523682227317,0.000715834785544701,0.000721070857703795,0.000726310384977233,0.000729059025584184,0.00073910130897878,0.00075538487115358,0.00075868856797959,0.000763187285394101,0.000780717444284021,0.000789976501341773,0.000806432199447927,0.000813476576867688,0.000815913118980895,0.000822150296736492,0.000830341283782033,0.000836554277372095,0.000841507125879798,0.00085367166314713,0.000875349682935427,0.000877894517779855,0.000887109598937031,0.000899901971989696,0.000915587396953295,0.000917409982871245,0.000920914436679477,0.000927786959958226,0.000931038590735996,0.000957162424919368,0.000958114057479271,0.000979189695809691,0.000982674753736545,0.000992457194080333,0.0010017580499334,0.00100189814562564,0.00101227977043391,0.00101352310211056,0.00102041649470701,0.00104125312078553,0.00105563532890479,0.00105618975700876,0.0010843409595322,0.00108830131384497,0.00110656898945763,0.00111849638062685,0.00112827650635243,0.00113001469225789,0.00113121827159185,0.00114324124639337,0.00115033277043845,0.00115427352375738,0.00115586398794007,0.00116624076656444,0.00116870735917653,0.00117311378190707,0.0011789919082713,0.0011913001183473,0.00120523222158779,0.00120544823642748,0.00120548109946023,0.00122118853568216,0.00125697721349923,0.00127038442963652,0.0012754453331026,0.00127759478076911,0.00130546415274639,0.00130566631699499,0.00130698482085296,0.00133303740488753,0.00135331376378793,0.00136968655927516,0.00139122139571206,0.0014294527754536,0.0014508583806974,0.00145581247325555,0.00146060165528828,0.00146341540343716,0.00150587818352156,0.00152654436790083,0.00154799114562585,0.00154875734536905,0.00155370777671248,0.00155837349195879,0.0015619734831605,0.00157018942084066,0.00159416535029915,0.00160171192052046,0.00160812664398282,0.00162040562490918,0.00165133822565565,0.00166898047601012,0.00168897288195976,0.0016914987564979,0.00171294147044084,0.00172783982093523,0.0017327761017624,0.00174156662023111,0.00174341359636714,0.00175260847134716,0.00175718976747566,0.00176821566583262,0.0017783295050348,0.00181676277538777,0.00183723601904097,0.00184586363043046,0.00184968369356864,0.00185026972530791,0.00188640485156187,0.00189052413725382,0.00189307918025512,0.00191583310127107,0.00192684339105674,0.00192852791303347,0.0019332435004423,0.00193880310471496,0.00196747726614438,0.00200979894151959,0.00201731835472433,0.0020288884545195,0.00203811567572496,0.00204960122813412,0.00205483724521514,0.00206771508609801,0.00209691752235373,0.0021168395507829,0.00212201879718714],[1.72672708665756e-09,3.12043129357848e-08,3.12043129357848e-08,4.54964527281215e-08,5.02635019729316e-08,5.98759785372641e-08,1.37993792948141e-07,3.17107657519781e-07,3.17107657519781e-07,3.17107657519781e-07,4.82850984123077e-07,4.82850984123077e-07,8.38193456728667e-07,9.89308692060229e-07,1.36103955670817e-06,3.88414145021561e-06,4.80542446189708e-06,6.47434187271842e-06,6.47434187271842e-06,7.24528975649016e-06,7.24528975649016e-06,7.42190387288746e-06,9.43133920395342e-06,1.0655142505813e-05,1.3084661302402e-05,1.3084661302402e-05,1.456795304934e-05,1.48895485385218e-05,1.48895485385218e-05,1.53467436290159e-05,1.53467436290159e-05,1.53467436290159e-05,1.53467436290159e-05,1.85781259726692e-05,2.18538291649285e-05,2.36453479935131e-05,2.42908023761388e-05,2.42908023761388e-05,2.42908023761388e-05,2.42908023761388e-05,2.65813124234183e-05,3.02283276273844e-05,3.07444702202421e-05,3.13025208549003e-05,3.2442329903841e-05,3.30896720046869e-05,3.71022593669064e-05,4.87191767482477e-05,4.90884844998886e-05,4.90884844998886e-05,5.41789877541467e-05,5.41789877541467e-05,5.41789877541467e-05,5.857622392039e-05,5.86018588696645e-05,6.43350654438561e-05,7.06989506295653e-05,7.08609135278964e-05,7.36517347012815e-05,7.36517347012815e-05,7.83157871729288e-05,9.01056165739096e-05,9.3304388782168e-05,9.33429773769934e-05,9.60039146202297e-05,9.66599393412551e-05,0.000106923368009209,0.000106923368009209,0.000107487125846837,0.000114636403510391,0.000115416601918322,0.000131296728053397,0.000141903484562615,0.000144983857977681,0.000149767962521804,0.000149767962521804,0.00015061177711931,0.000155086616785669,0.000155086616785669,0.000155086616785669,0.000168712993742992,0.000169860522099381,0.000170745491099681,0.000183496049207566,0.000185841778251298,0.000185841778251298,0.000185841778251298,0.000194966117662383,0.000194966117662383,0.000205858255917504,0.000213195482308886,0.000226109039144752,0.000234201258091831,0.000235785637065474,0.000235785637065474,0.000235785637065474,0.000235785637065474,0.000235785637065474,0.000239571523491102,0.000246151885162955,0.000258269983739291,0.000296167092128594,0.000296167092128594,0.00030231648440031,0.000307226962441941,0.000315127274371766,0.000325165948516829,0.00033358484398963,0.00033358484398963,0.000337802356951773,0.000342660348920285,0.000352964092356033,0.000352964092356033,0.000352964092356033,0.000356405785609114,0.000365699266851725,0.00036766720363756,0.000381726012403451,0.00042093398833123,0.000435029017006433,0.000437114991736069,0.000439224482416554,0.000439224482416554,0.000455706206214512,0.000455706206214512,0.000466931728391579,0.000466931728391579,0.000481497550354985,0.000491463645677535,0.000525759426951197,0.000555939420550008,0.000569553685307678,0.000569553685307678,0.000570037946833805,0.000596255847786448,0.00060007036055192,0.000601918039081363,0.000641609180921816,0.000641609180921816,0.000662696787657825,0.000662696787657825,0.000685486541238376,0.000691451489097711,0.000697022830104289,0.000697941315502515,0.000699599260488184,0.000757152545508676,0.000820180272915318,0.000829546561821807,0.000856455729991137,0.000863309124083599,0.000894610167671791,0.000894610167671791,0.000895110369286874,0.00090951189839131,0.000924283288899119,0.000927191477299593,0.000927746922324962,0.00093947383586691,0.00093947383586691,0.00093947383586691,0.00093947383586691,0.00093947383586691,0.000954892670693114,0.000974394582140001,0.000989337856051343,0.00099212127560101,0.00100768701492728,0.00102276144401943,0.00102276144401943,0.00102276144401943,0.00112348894229117,0.00118222105144561,0.00118222105144561,0.00126479958949815,0.00132490884061905,0.00132712455910421,0.00137203817413353,0.00137203817413353,0.0013786525747046,0.00138917402308332,0.00147784302902345,0.00149170986736189,0.00149731482984632,0.00149731482984632,0.00153167427249718,0.00153723688795302,0.0015799321424318,0.0016155041653722,0.00161982045855737,0.00163182954390007,0.0016835169019469,0.0016835169019469,0.00169095213795416,0.00169407577891896,0.00171595205663761,0.00176175387816916,0.00184509451637943,0.00184997046207493,0.00185244287683419,0.00188589051793099,0.00188817284906844,0.00190100692854764,0.00194654689961936,0.00194654689961936,0.00195673812193369,0.00197902188687206,0.00197947273361965,0.00198758759211939,0.00198917776138686,0.00198917776138686,0.00203403929590048,0.00205478625663847,0.00205478625663847,0.00227011853819267,0.00227011853819267,0.0023353614550993,0.00233613481705728,0.00233806298710461,0.00241596119548159,0.00243850056813264,0.00243985637131704,0.00244017415411528,0.00248155812255426,0.00250199781223349,0.00252232065493122,0.00254060178675443,0.00255012437069503,0.00266552051642262,0.00267245583452602,0.00267245583452602,0.00270309282891386,0.00270309282891386,0.00272437164198082,0.00273854081191475,0.00273854081191475,0.00278239837985959,0.00281113245420029,0.00283836449218655,0.00288388091828744,0.00288388091828744,0.00289283047590857,0.003101948999438,0.003101948999438,0.00311451101229305,0.00318842503519351,0.00320749181119675,0.00327863557176243,0.00345328301113591,0.00345551690751014,0.00345551690751014,0.00351035348947246,0.0035230798601443,0.00354221651744843,0.00360318610068185,0.00360318610068185,0.00360318610068185,0.00365610350299843,0.00372937767198412,0.00374303718086624,0.00374303718086624,0.00374303718086624,0.00375618855118025,0.00379199766890339,0.00379218307418498,0.00379218307418498,0.00382707604024661,0.00393028862970444,0.00397942653273154,0.00397942653273154,0.00420612776086594,0.00420612776086594,0.00425976516021253,0.00427500047896211,0.00428197189541162,0.00431053507059535,0.00434160753868341,0.00434160753868341,0.00434160753868341,0.00434666800887735,0.00438411964032389,0.0043860550468137,0.00439152991250166,0.00451137289690562,0.0046009979388827,0.0046009979388827,0.00474726391393719,0.00474787609866323,0.00483488537642976,0.00483488537642976,0.00494879011185753,0.00498895403809817,0.00498895403809817,0.00498895403809817,0.00498895403809817,0.00498895403809817,0.00506522534826785,0.00511449812397292,0.00512637193869147,0.00514362054255275,0.0051854884142033,0.00518998826259686,0.00519999003491587,0.00521317769515232,0.00521629229550947,0.00527027150239741,0.00537351677055196,0.00537428526241467,0.00539495874458532,0.00539495874458532,0.00539495874458532,0.00549720634443191,0.00556247840994896,0.00556247840994896,0.00563212058477871,0.00567071693752285,0.00567071693752285,0.00567071693752285,0.00567071693752285,0.00571612284307465,0.00576703244764709,0.00577383199951594,0.00584133506235132,0.00597411662550755,0.00599182305529043,0.00602910882562143,0.00607854680857963,0.00610256578483478,0.00615091002735723,0.00618837725283426,0.00621686890240043,0.00621686890240043,0.00621686890240043,0.00622217086314305,0.00627043580687803,0.00627043580687803,0.00630593680452641,0.00640093082905551,0.00640093082905551,0.00640093082905551,0.00642693378574,0.00652881742887093,0.00652881742887093,0.00671561474893749,0.00672146432520736,0.00672146432520736,0.00672146432520736,0.00676563484853548,0.00705787709597077,0.00709377908648745,0.00737968450729333,0.00738089934998455,0.00743158519097117,0.00751811995253421,0.00762304472916841,0.00765768037804651,0.00769193360781352,0.00780925347222826,0.00784383261785266,0.00784383261785266,0.00787946873180699,0.00787946873180699,0.00787946873180699,0.00788273888307127,0.00795536019671745,0.00795536019671745,0.00795536019671745,0.00795981467050384,0.00819387276743797,0.00819387276743797,0.00828952746200916,0.00828952746200916,0.00843259055826505,0.00844967027917442,0.00844967027917442,0.00849537243044732,0.00849537243044732,0.00855373538233775,0.00860270528599408,0.00860270528599408,0.00860270528599408,0.00869166255610611,0.00869708050914311,0.00873368297778059,0.0087842586814829,0.00879490493120464,0.00879490493120464,0.00890242327777711,0.00894022729280339,0.00911188780321576,0.0092169554879056,0.00924808634277896,0.00925825104572392,0.00936078411175019,0.00936078411175019,0.00936078411175019,0.00936788944880983,0.00944141182963893,0.00971834948859391,0.00971834948859391,0.0100318089144055,0.0100470608435525,0.0100502941112191,0.0100721484870072,0.0101524982328856,0.0103157598167027,0.0103157598167027,0.0106219715877809,0.0106348970769803,0.0107915203344502,0.0107915203344502,0.0108159227473114,0.0108159227473114,0.0108159227473114,0.0108159227473114,0.0108159227473114,0.0108159227473114,0.0109447899192216,0.0109447899192216,0.0109447899192216,0.0109537721861265,0.011349263522851,0.0115549646296344,0.0115549646296344,0.0117106127212929,0.0117248713453965,0.011732054007105,0.011732054007105,0.011965911870476,0.0120430252370485,0.0120782193474601,0.0120782193474601,0.0124977060821146,0.0126199157137906,0.0126199157137906,0.012906693421322,0.0131897396392622,0.0131897396392622,0.0131897396392622,0.0131897396392622,0.0133853772379391,0.0133853772379391,0.013393633817518,0.0136314714955481,0.0139948087561534,0.0139948087561534,0.0140625224167031,0.0140955962169896,0.0142031075290739,0.0142940020117181,0.0143932822667538,0.0143932822667538,0.0143932822667538,0.0143932822667538,0.014559806668859,0.014559806668859,0.014676378028974,0.0146846347827061,0.0147547471667076,0.0149586162217684,0.0149863451683308,0.0151224671615524,0.0152854731859067,0.0153814414063559,0.0154842870902341,0.0154842870902341,0.0155836297627157,0.0155901844472866,0.0156190709235145,0.0164534954493252,0.0165616420475953,0.0167298343848362,0.0169972284736145,0.0169972284736145,0.0172491273047283,0.0174455657305828,0.0179566565562705,0.0180133754053839,0.0180133754053839,0.0181231064278317,0.0181692216500273,0.0181692216500273,0.0181692216500273,0.0181692216500273,0.0183013440320767,0.0188345733285751,0.0189629166346946,0.0197641074934948,0.0202765889134108,0.0203342278703551,0.0206382571242368,0.0207276248118928,0.0207568156784274,0.0210287273067763,0.0210542194802935,0.0211654649542531,0.0212763639736087,0.0213139966937352,0.0215642804757957,0.02199529667825,0.0220473989245805,0.0221339515698261,0.0225973464638788,0.0228199759584025,0.0232492007757671,0.0234059396889658,0.0234297418131023,0.023562374350761,0.023750370826292,0.0238811641652163,0.0239755425551546,0.0242746205932794,0.0248425263817873,0.024866276817815,0.0250785022348043,0.0253908387794535,0.0257834369675881,0.0257848879162596,0.025833513070552,0.0259762506731381,0.0260172568954422,0.0266714771756036,0.0266714771756036,0.0272061503459796,0.0272509747421912,0.0274699321076342,0.0276262028450069,0.0276262028450069,0.027841288384203,0.027841288384203,0.0279778601627859,0.0284954965893168,0.0287960050042894,0.0287960050042894,0.0295082617379986,0.029560781396024,0.0300010017085915,0.0302680089322422,0.0304425264623028,0.0304425264623028,0.0304425264623028,0.0307093160631753,0.0308429001930266,0.0308774748631551,0.0308774748631551,0.0310976178029517,0.0311064176275158,0.0311667218080019,0.0312658345947575,0.0315347971327606,0.0317370693074891,0.0317370693074891,0.0317370693074891,0.0320925702003549,0.0329735698222258,0.0332653361710036,0.0333342337154436,0.0333342337154436,0.0339187023294087,0.0339187023294087,0.0339187023294087,0.0345332590351557,0.0349962612557521,0.0353568557029912,0.0358491899118085,0.0367692631763763,0.0372540514366375,0.0373154468276894,0.0373724068529736,0.0373787102783187,0.0383959377826452,0.0388548242172522,0.0392828539916864,0.0392828539916864,0.0393398809063599,0.0393895133149791,0.0394120830872334,0.0395508439066075,0.0400854116321335,0.0402057307773404,0.0402972733386331,0.0405351984416715,0.0412381358959188,0.0416073403257387,0.04202479589736,0.04202479589736,0.0424850338469305,0.0427816665867278,0.0428310479890641,0.0429481532140595,0.0429481532140595,0.0431017343485529,0.0431415275289681,0.0433391445772005,0.0435137802752969,0.0443796128303196,0.0448045547759087,0.0448967948845965,0.0448967948845965,0.0448967948845965,0.0456974513043083,0.0457070311531248,0.0457070311531248,0.0461798247043138,0.0463324057522347,0.0463324057522347,0.0463691797742002,0.046426043423594,0.0470353062689589,0.0479682996550552,0.0480689655097079,0.0482656650479565,0.0484060785038819,0.0485995835185743,0.0486445129318492,0.0488699089910729,0.0494797766741459,0.0498690404851913,0.0499102934866682],["22:30396941-30425303:+","9:33441156-33447596:-","1:207018522-207032756:-","5:36246913-36302114:-","14:35401513-35404749:-","19:15615218-15630639:+","6:35573585-35728583:-","2:191245185-191425389:+","1:241532134-241595642:+","8:127735434-127742951:+","X:10015254-10144474:+","1:221701424-221742089:-","21:30214006-30216097:-","4:69199951-69214748:-","22:45920366-45977162:-","7:146116002-148420998:+","12:101696947-101744140:+","16:54283304-54286787:-","4:155854738-155920406:+","6:25279078-25620530:+","19:4969113-5153598:+","4:69280475-69295050:+","20:1266280-1309328:+","22:31618491-31662432:-","17:68267026-68291267:-","5:36192589-36242279:-","3:189631389-189897276:+","11:45647689-45665622:-","14:64465499-64474503:+","4:74933095-75050115:+","2:31334321-31414742:-","16:67430652-67437553:+","18:26226445-26391685:+","3:183253253-183298504:+","15:38252836-38357249:+","6:105273218-105454062:-","18:8705661-8832778:+","11:60842113-60851081:+","22:33162226-33922841:-","7:2728105-2844308:-","5:168291645-168472303:+","12:47075707-47079951:-","21:26835755-26845409:-","7:87345664-87399794:+","12:48995149-48999375:-","1:65792514-66374579:+","10:111077029-111080907:+","7:99966720-99976042:-","18:58044226-58401540:+","X:67544021-67730619:+","20:58228940-58309451:-","9:137299631-137302271:-","16:22297375-22335101:+","10:102152176-102163871:+","5:14581792-14616180:+","7:99980762-99987535:+","5:76403285-76708132:+","10:68956170-68985068:+","17:4538897-4555386:-","18:9475009-9538114:+","2:230165186-230225729:-","21:36156782-36294274:+","12:82686880-83134870:+","5:169637268-170083382:+","11:120236640-120319945:+","8:89901849-89927888:+","4:69408828-69423164:+","10:100987367-100994403:+","X:7147237-7804358:+","3:188947214-189325304:+","2:96143169-96145440:-","17:47951967-47957883:-","11:7513298-7657127:+","4:152320544-152536092:-","5:128257909-128659185:-","8:8317736-8386439:-","3:126342635-126357408:-","X:154762742-154777689:+","1:169105697-169132722:+","8:123178960-123210079:+","5:74627406-74641424:-","1:2403964-2413797:-","1:117929720-117966543:+","2:136114349-136118149:-","16:52436417-52547802:-","20:40685848-40689236:-","15:55202966-55319113:-","8:27311482-27459391:+","7:16791811-16833433:-","19:10106362-10112012:+","19:2476122-2478259:+","8:66429014-66430733:+","1:220690363-220699153:+","2:71064344-71079808:+","5:176383938-176388927:-","13:23328826-23433740:-","5:154190730-154420984:+","1:112911847-112957013:-","11:69475567-69481545:-","2:99545419-100192428:-","1:109616104-109632053:+","4:159665833-159777828:-","2:19910260-19990131:-","4:152936352-152979696:+","21:42062959-42143453:+","11:129815848-129860003:+","4:69389492-69402081:+","17:79932343-80035872:-","11:107790991-107928293:-","20:34704339-34713439:+","8:94925972-94949378:-","8:144262045-144291438:-","7:101287482-101289771:-","20:24931840-24932983:+","2:10439968-10448327:-","2:171522247-171558129:+","1:54849627-54887195:-","17:57085092-57121346:+","X:133300103-133415489:-","3:172505508-172523475:-","19:15564074-15584709:+","22:23536881-23547797:+","8:109573978-109691791:-","X:11117651-11665920:-","17:8140472-8156506:-","3:111732497-111976517:+","11:19350724-20121601:+","4:4267701-4290154:-","9:33461353-33473930:-","12:101568353-101686028:+","3:51933429-51941904:-","2:149038107-149215262:+","2:118088452-118110997:+","9:38392702-38398661:+","3:8501807-8574668:+","8:37858618-37899497:-","12:131929200-131945896:+","10:113550837-113589602:+","2:45005182-45009452:-","22:42269703-42279534:+","1:58780791-58784047:-","11:34621093-34663288:+","1:182378098-182392206:-","8:98117293-98159835:+","13:23979805-24307074:+","5:149730298-149855022:+","17:39737927-39747291:+","1:43970000-43973369:+","X:105822539-105958610:+","6:150865549-151101887:+","2:218607855-218637184:+","X:110002631-110182734:+","6:36676460-36687337:+","2:8678845-8684461:+","13:42040036-42256578:+","1:56645314-56715335:+","17:5282265-5386340:+","17:49289206-49362473:-","2:226800146-226813741:+","6:41921499-41933046:+","11:86791059-86952910:+","6:81491439-81752774:-","6:139371807-139374648:-","3:121894401-121944188:+","5:133196455-133612541:-","15:40087890-40108892:-","X:74421493-74533917:+","17:64953683-64956546:+","20:58309715-58367507:+","2:15940550-15947007:+","9:136401922-136410614:-","1:147155106-147172550:-","5:149551947-149634968:+","4:37453925-37623495:+","3:124080023-124726325:+","3:121835183-121886526:+","3:101779202-101828231:+","6:56457987-56954649:-","17:82031678-82034204:+","5:173314713-173329503:-","2:28894667-28948219:+","6:129576132-129710177:-","3:156673235-156706770:+","7:41960949-42237870:-","11:60890547-60906585:-","3:105366909-105576900:+","7:50458436-50565405:-","4:73431138-73456174:+","X:132626016-132961395:-","2:12716889-12742734:+","6:7389793-7418037:+","11:46277662-46321409:+","17:40922700-40937646:-","9:98069275-98119222:-","22:31122731-31134697:+","10:3066333-3137718:+","1:67685201-67688334:+","1:11054584-11060020:-","10:96189171-96271587:-","11:113387779-113400416:+","17:39687914-39730426:+","18:54717860-54895516:+","22:26521996-26596717:-","20:62410237-62427539:-","11:95089846-95132645:+","1:229256892-229271242:-","3:14810853-14934571:+","11:76782251-76798153:+","3:38103129-38137242:-","2:9106593-9109865:+","5:16473038-16617058:-","12:53046969-53064379:+","10:28677510-28682932:+","1:232397965-232630571:-","X:107628428-107651993:+","16:71565660-71577092:-","16:15949577-16143074:+","X:109624244-109733403:-","16:83789967-83807834:-","2:112541915-112579818:+","X:132203024-132219480:-","5:71587288-71658706:+","5:113022099-113488823:-","18:23134564-23260467:+","14:65410592-65744121:+","1:46040140-46133036:-","10:71212570-71302864:+","12:110468415-110490385:+","17:2322396-2336657:-","12:29149103-29340980:+","11:113314579-113383544:+","1:25430858-25500209:+","11:35618460-35620865:+","10:113751262-113783429:+","16:1612337-1677908:+","9:107484852-107490482:-","19:36259540-36331770:-","5:132369710-132395613:+","5:159157409-159210053:-","1:89106132-89150456:-","14:91271323-91417844:-","5:154887411-154938211:-","12:31280584-31327058:-","4:184755595-184826818:-","7:106248298-106286326:-","X:108719949-108724944:-","11:47214465-47239217:+","2:230034982-230068993:-","13:46553168-46753040:+","7:105439661-105522271:-","15:63907036-64072033:-","1:161184302-161199054:-","2:86213993-86338083:-","4:145098288-145129524:+","3:120684938-120742993:-","5:90458209-90474771:-","19:41386374-41397359:-","9:115019575-115118257:-","18:61808067-61894247:-","13:23570370-23676104:+","16:54930865-54934485:+","10:102132994-102150333:+","8:74234700-74321540:-","2:68157888-68176238:+","16:80597907-80804598:-","3:58008400-58172251:+","11:47177522-47186443:-","12:7188685-7218574:+","22:42553617-42574382:+","22:30425623-30429054:+","20:38419638-38435409:-","17:72121020-72126416:+","1:229271062-229305894:+","2:197705369-197708395:+","1:203340628-203351758:-","19:43460787-43465608:-","5:172325000-172454525:-","2:71178587-71178773:+","1:203626787-203744081:+","16:72782885-73891871:-","6:35213956-35253079:+","15:56244009-56445997:+","11:11270877-11622005:-","16:4371848-4383538:+","15:64963022-64990310:-","14:95181940-95319908:-","2:150468195-150539011:-","12:54369133-54391298:-","11:65890673-65891635:+","1:236215101-236281958:-","7:43582758-43650713:+","15:88621337-88632281:+","12:39293228-39443390:-","11:104942866-104969366:-","20:63540810-63547504:-","5:78485215-78770021:-","2:214931542-215138626:-","1:178725147-178921841:+","6:57172326-57189833:+","14:70809841-70815994:+","1:169849631-169894267:-","1:16124337-16156069:-","11:62832342-62841809:-","1:207034366-207081024:+","7:99992397-99993050:+","1:24502351-24541040:+","1:220528136-220664461:+","12:109088188-109093631:-","3:154121003-154257827:+","2:130342877-130347967:+","3:187721377-187745725:-","19:10718079-10833488:+","2:8666636-8681864:-","5:128083766-128189677:+","17:64039142-64130819:-","3:192796815-192917856:-","16:50407184-50546347:+","20:49632945-49713878:-","10:94333226-94362959:-","19:19033575-19060311:+","2:186694060-186765959:+","20:2652593-2658393:+","11:57406954-57427580:-","7:157010805-157016426:+","3:180323107-180325059:+","13:26044597-26052016:-","6:143422832-143450695:-","3:121769761-121835079:-","19:41425359-41428730:-","1:40783787-40840452:+","22:21628089-21630064:-","7:139452690-139483673:-","1:117143587-117210960:-","X:37349309-37457292:+","10:103396626-103446294:+","16:69337996-69343106:+","7:23562459-23564261:-","9:2720469-2844095:-","18:58671465-58754477:+","3:50606489-50611774:-","2:138501770-138573547:+","10:36521721-36524234:-","8:133237175-133302022:-","2:221418027-221574202:-","12:124946825-124989131:-","1:21596215-21669363:-","3:183178043-183428778:-","20:833715-857463:+","22:43166622-43187134:-","17:64147227-64263260:-","17:76470891-76501790:-","5:65722205-65871725:+","11:83455012-85627922:-","12:48857145-48865870:-","3:52681156-52694497:+","1:233614106-233672514:+","3:50287732-50292918:-","4:39498755-39528311:-","2:121726945-121736911:-","6:93240020-93419559:-","12:54395261-54419266:-","4:77157207-77433388:+","21:34787801-36004667:-","2:238238267-238240662:-","6:51615299-52087613:-","12:93569814-93583487:+","7:94509219-94557019:+","3:194685883-194689037:+","4:56393362-56435615:-","14:32329298-32837684:+","10:79347469-79355334:+","3:143971823-144048719:+","22:27748277-27801756:-","9:12775020-12823060:+","1:19596979-19658456:+","18:10666483-11149569:-","2:5932543-6003510:+","1:169463909-169485944:-","19:51889235-51905040:-","12:48965340-48971735:-","17:37084992-37406836:-","14:36657568-36679362:+","3:123067025-123225227:+","11:123723914-123741675:-","21:43659560-43696079:+","8:101492439-101669726:+","14:61695513-61748259:+","16:48081006-48156018:-","1:229626247-229660200:+","1:246775880-246792385:+","11:47239302-47248906:-","21:15928296-16645467:+","8:144078648-144080648:+","12:89347235-89352501:-","13:27424619-27435823:+","17:3860315-3894891:-","1:151540305-151583583:+","1:19682213-19799945:-","5:83471618-83582303:+","13:19304593-19305625:-","1:182598623-182604389:-","10:101781325-101783413:-","X:44523639-44542859:-","5:38474668-38608354:-","3:9945542-9952408:-","3:184561785-184582408:+","5:151100706-151157785:-","1:203305491-203309602:+","19:45769709-45782552:-","7:99923266-99929620:-","20:21499261-21502934:-","1:167916675-167937072:-","15:63042632-63071915:+","12:122726076-122730844:-","21:32311018-32393012:-","21:6111131-6123778:+","2:226731317-226799759:-","17:3923870-3964464:-","20:10637684-10673999:-","16:79585843-79600737:-","18:32124877-32470882:-","16:4257186-4273075:-","5:112419583-112420978:+","17:54968727-55173632:+","5:177446445-177456286:+","12:123671113-123708399:+","1:42925353-42958893:-","3:12484432-12539623:+","9:76419850-76651203:+","4:155924118-155953866:-","17:80134369-80147151:-","8:11676959-11760002:+","1:53242364-53328469:-","1:20482391-20486210:-","11:134150113-134225454:-","X:153687926-153696588:+","17:62627670-62693597:+","X:64185117-64205708:-","17:36534987-36539310:+","15:51723011-51751585:-","1:65147549-65232145:+","2:202874261-203014798:-","1:180632022-180890279:+","21:44107373-44131181:+","10:19816239-20289856:+","12:121712752-121783001:+","16:47077703-47143945:-","11:27040725-27127809:+","20:1180561-1185415:-","11:115169218-115504957:-","7:149764182-149773588:-","4:37590800-37686376:-","13:85792790-85806683:-","6:10694972-10709782:+","11:86945679-86955395:-","17:77086716-77099902:+","11:45921621-45929096:+","X:110346703-110346909:-","12:12891559-12917937:+","3:27372721-27484420:-","3:141228726-141367753:+","5:80111651-80256048:-","12:57768471-57772119:-","5:115520908-115544775:-","14:28264390-28265974:+","15:60488284-61229302:-","1:3857267-3885429:+","2:24491914-24770702:+","17:38869859-38921770:+","8:123497889-123541206:-","22:31281594-31292534:-","14:37595847-38041442:+","16:5084284-5097795:-","1:165827614-165911618:+","11:73264505-73298625:+","11:47980558-48170841:+","3:107220744-107348464:+","11:76800364-76804555:+","10:26697701-26746798:+","9:4792944-4885917:+","5:178149463-178153894:-","21:5130871-5154658:-","8:58552924-58582859:+","16:88706483-88715396:+","11:10858179-10908972:+","16:15395754-15413271:+","2:195575977-195737702:+","5:139274102-139284899:+","X:38801432-38806537:+","12:69825227-69959097:+","6:12290361-12297194:+","4:75642782-75724525:-","17:38530031-38605952:-","10:122560665-122643736:+","2:8852690-9003709:-","16:3651639-3717553:-","14:29576479-30191898:-","6:3585101-3720081:-","15:39934115-40035591:+","11:68754620-68844410:-","3:100492619-100577444:+","4:88709298-88730103:+","1:116909916-116990353:+","7:107044705-107161811:+","10:5638867-5666595:-","9:137062127-137070557:-","4:168497052-168928457:+","2:109614364-109618990:+","5:116443555-116574823:-","12:52897187-52949954:-","5:88717117-88904257:-","7:44983023-44986961:-","6:10492223-10629368:+","14:22836560-22849027:+","12:112906783-112933222:+","1:22117313-22143969:-","5:112876385-112922289:-","1:41361922-41383590:+","7:94394895-94431227:+","14:103529196-103537073:+","16:30423615-30430030:-","11:17208153-17349980:+","17:75272981-75289510:-","2:32946953-33399509:+","7:111726110-112206407:-","11:85694224-85811159:-","9:99104038-99154192:+","19:50797704-50804929:-","17:50055968-50090481:+","1:156594301-156601496:-","13:97221434-97394120:+","19:39825350-39834201:-","7:107743949-107761667:+","10:120457227-120592065:+","7:93099513-93118023:-","2:189560590-189583758:-","20:34280268-34311802:-","14:97924637-97978124:-","2:231453531-231483641:-","15:43510958-43531620:+","21:42843094-42879568:-","6:16299112-16761491:-","1:154405193-154469450:+","8:37695782-37700019:+","18:23992773-24135610:+","12:46383652-46876784:+","1:116574399-116667755:-","7:101308270-101314800:+","14:56117814-56301524:+","X:22032325-22251310:+","14:37589552-37596059:-","15:90352284-90369146:+","19:34404399-34426168:+","17:47844908-47855874:-","12:125138245-125141711:+","2:191678068-191741097:+","3:177019340-177228000:-","3:149229356-149291800:-","6:108986437-109094819:-","5:176526712-176538025:-","14:105140982-105168824:-","2:87454781-87636740:+","2:237324003-237414207:-","17:28721487-28722877:-","2:218658764-218663443:+","1:84398532-84415018:+","5:79689836-79800240:+","4:105894775-106004027:+","16:87326987-87392142:-","X:78129748-78139650:-","16:74999024-75110994:+","21:33485530-33491716:-","5:1877413-1887236:-","15:31326835-31435665:+","4:103105349-103198445:-","2:173075435-173268015:+","13:73054976-73077541:+","11:62337448-62393412:+","15:38865322-39427195:-","1:151762899-151771334:+","6:4994717-5004063:-","11:64305497-64316743:+","1:36224432-36305357:+","8:85177154-85217158:+","6:122789049-122809720:+","2:96536743-96552634:+","11:113368478-113369117:+","5:154325568-154445850:-","5:132294394-132344190:+","2:26308547-26395891:+","5:111091716-111130502:+","19:15049480-15058293:+","19:751112-764318:+","20:58069054-58072070:-","21:43414483-43427131:-","5:150000046-150053142:+","1:40132764-40133448:+","16:69741871-69754926:-","6:3268962-3457022:-","6:31676684-31684040:-","X:120426148-120469365:-","4:78551747-78610451:+","3:3799431-3849834:+","1:27098809-27166981:-","2:232606057-232682780:+","9:137582081-137590512:-","11:74988279-75018893:+","7:47275154-47582558:-","6:34018643-34155622:-","12:47963569-47968878:+","6:148272304-148552048:+","14:69484692-69531551:+","17:13755574-14069495:-","X:46912276-47061242:+","8:27284886-27311272:-","5:60743563-60744970:-","3:149284782-149333653:+","3:114005833-114088422:+","16:48166910-48247568:-"],["protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","transcribed_unprocessed_pseudogene","protein_coding","protein_coding","protein_coding","protein_coding","transcribed_unprocessed_pseudogene","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","processed_pseudogene","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","lncRNA","protein_coding","protein_coding","lncRNA","protein_coding","protein_coding","protein_coding","protein_coding","processed_pseudogene","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","unprocessed_pseudogene","lncRNA","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","transcribed_unprocessed_pseudogene","lncRNA","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","lncRNA","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","lncRNA","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","transcribed_unprocessed_pseudogene","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","lncRNA","protein_coding","protein_coding","protein_coding","lncRNA","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","lncRNA","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","lncRNA","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","lncRNA","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","lncRNA","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","unprocessed_pseudogene","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","lncRNA","protein_coding","protein_coding","protein_coding","protein_coding","unprocessed_pseudogene","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","lncRNA","protein_coding","protein_coding","protein_coding","lncRNA","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","lncRNA","processed_pseudogene","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","processed_pseudogene","protein_coding","protein_coding","protein_coding","protein_coding","processed_pseudogene","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","lncRNA","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","lncRNA","protein_coding","lncRNA","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","processed_pseudogene","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","lncRNA","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","lncRNA","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","lncRNA","protein_coding","processed_pseudogene","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","transcribed_processed_pseudogene","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","lncRNA","lncRNA","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","lncRNA","protein_coding","protein_coding","lncRNA","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","lncRNA","protein_coding","protein_coding","protein_coding","lncRNA","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","lncRNA","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","transcribed_unitary_pseudogene","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","lncRNA","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","lncRNA","protein_coding","lncRNA","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","TEC","protein_coding","protein_coding","transcribed_unitary_pseudogene","protein_coding","protein_coding","protein_coding","lncRNA","protein_coding","lncRNA","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","lncRNA","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","lncRNA","lncRNA","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","lncRNA","protein_coding","protein_coding","processed_pseudogene","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","lncRNA","protein_coding","protein_coding","processed_pseudogene","lncRNA","protein_coding","protein_coding"],[23541,360,79098,202151,4792,11283,2289,4430,8564,4609,55841,11221,9073,10720,7477,26047,56994,79191,6999,55604,23030,54490,9751,23761,9120,133686,8626,8534,9495,25849,7498,3291,6875,84002,161742,5550,23255,79080,9215,2768,23286,347902,9510,54677,23109,5142,150,563,23327,367,null,441478,55718,9221,54491,646282,10788,9188,10514,10928,3431,9980,160335,1794,25833,734,null,56652,412,285386,1844,79170,8495,55294,2201,157285,28999,1736,481,84985,8507,5192,10885,7852,27324,9935,5873,2185,10551,56342,4616,23212,79762,55577,51491,26278,55568,6566,105379407,3899,271,null,57539,85462,89766,120224,null,125058,54733,58476,94241,23246,null,null,4953,79901,1718,8165,2239,8743,null,null,55638,395,5187,90102,89797,55646,65083,4604,9136,130576,51141,219,29995,80223,80324,3026,10736,null,3725,26298,2752,10940,221178,133522,2886,1802,203447,25902,84812,84187,1026,3398,160851,5563,9135,22834,null,705,11098,55603,10370,6565,23105,90427,6567,null,57403,4613,10807,5565,389337,55286,8997,55840,91775,667,5881,8614,23160,93663,25976,2737,27339,214,1644,174,90161,28951,83732,90993,25984,9830,27124,5214,1647,6723,29760,255239,2064,5874,8459,140893,23052,105373159,152273,25987,30,null,54463,23371,25805,57568,5631,6898,4363,2182,102724163,84172,57826,64087,4163,91768,2530,8503,219699,29902,55720,55711,54970,55219,24147,79949,57585,9314,100506930,6584,153830,2634,440193,25929,58516,2180,10135,null,1643,151473,23143,54517,23604,9507,65055,6059,285282,153364,56915,3371,220441,55504,10265,23082,56704,56902,124359,2317,29763,5830,253190,51537,388796,6662,5867,92935,2331,27076,285590,null,493,463,222663,374618,374378,114990,51324,79789,390,25946,11007,56605,9263,64782,55605,837,6725,10184,26154,55103,9532,100506411,57147,1969,54663,5208,null,11123,4139,121642,26084,92856,604,1785,null,6558,2081,151963,null,9334,64318,93436,165215,10528,29015,645249,null,387914,134637,9657,374907,9132,150223,346689,79679,5638,22984,51388,null,9933,10892,1154,339745,null,10397,2043,57647,5909,23101,83541,23170,55852,79651,57486,1740,27289,26354,3775,7866,7358,84365,2045,3678,901,[861,100506403],55502,5314,8835,64921,131583,5471,9472,10105,205428,4330,286343,[4681,100532736],63895,null,10560,65251,7480,31,5083,10954,7753,23076,79977,3091,94160,9816,null,53,null,54512,1848,2971,84254,7286,255104,1462,null,6004,10360,139341,3977,285368,2049,309,7832,1760,349149,null,25874,7168,27198,9875,102724428,3667,489,182,4094,64762,7023,54508,252983,80758,79867,6513,80746,2650,1519,9775,2626,7804,55450,23310,6535,9902,139285,284098,256586,205,55759,9213,5822,84898,144404,81831,8424,55321,23705,168544,768211,84189,55003,8322,654434,120071,null,9052,9497,92370,256987,4234,56929,null,6095,1677,8648,3927,114907,113791,319089,196483,7371,5031,5795,344595,null,23590,10171,55651,102724159,6386,348180,729013,255027,57181,null,58526,196446,1906,9908,80725,1755,129642,10131,5587,100507336,440275,1374,55076,285512,5738,5577,79754,89958,23022,65124,57556,3856,4208,285958,2651,4323,4938,54361,7905,100132074,1278,115708,79077,4925,60386,4052,9732,54843,7046,84798,3675,54865,10150,9149,79872,196051,54809,30061,191,388011,4691,4130,10785,6310,3570,80139,125488,null,3321,null,57161,5251,3169,342132,84306,80320,null,64859,79718,null,27244,22838,3714,112597,1293,null,617,58511,202333,255743,79791,51616,84937,54943,50805,51621,1062,51776,688,80150,null,51686,10799,2101,9967,1875,10924,10865,null,386627,6583,85465,134430,23581,126353,null,150094,22993,null,28987,63027,80741,3920,306,57633,6548,80303,116225,10825,64759,2914,79022,23328,400224,100874058,9767,23087,null,null,79691,85320]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>gene_id<\/th>\n      <th>gene_name<\/th>\n      <th>logCPM<\/th>\n      <th>logFC<\/th>\n      <th>PValue<\/th>\n      <th>FDR<\/th>\n      <th>location<\/th>\n      <th>gene_biotype<\/th>\n      <th>entrezid<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"targets":4,"render":"function(data, type, row, meta) { return DTWidget.formatSignif(data, 3, 3, \",\", \".\"); }"},{"targets":5,"render":"function(data, type, row, meta) { return DTWidget.formatSignif(data, 3, 3, \",\", \".\"); }"},{"className":"dt-right","targets":[2,3,4,5]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render"],"jsHooks":[]}</script>
+<div id="top-de-genes" class="section level3">
+<h3>Top DE Genes</h3>
+<p>logCPM values for the most up and down-regulated genes were also inspected using simple boxplots.</p>
+<div class="figure" style="text-align: center">
+<img src="figure/dge_analysis.Rmd/plotTopUp-1.png" alt="*Top ranked up-regulated genes*" width="960" />
+<p class="caption">
+<em>Top ranked up-regulated genes</em>
+</p>
+</div>
+<div class="figure" style="text-align: center">
+<img src="figure/dge_analysis.Rmd/plotTopDown-1.png" alt="*Top ranked down-regulated genes*" width="960" />
+<p class="caption">
+<em>Top ranked down-regulated genes</em>
+</p>
+</div>
+</div>
+</div>
+<div id="checks-for-bias" class="section level2">
+<h2>Checks For Bias</h2>
+<p>Using the sign of logFC to indicate direction, and -<span class="math inline">\(\log_{10} p\)</span> as the ranking statistic, bias was also checked within the set of results, using GC content and gene length as potential sources of bias amongst the set of DE genes.</p>
+<pre class="r"><code>a &lt;- topTable %&gt;%
+  ggplot(aes(signedRank, gc_content)) +
+  geom_point(aes(colour = DE), alpha = 0.4) +
+  geom_smooth(se = FALSE) +
+  geom_hline(yintercept = mean(topTable$gc_content)) +
+  labs(
+    x = &quot;Rank&quot;, y = &quot;% GC Content&quot;
+  ) +
+  scale_colour_manual(values = c(&quot;grey50&quot;, &quot;red&quot;)) + 
+  theme(legend.position = &quot;none&quot;)
+b &lt;- topTable %&gt;%
+    ggplot(aes(gc_content, stat(density))) +
+    geom_density(colour = &quot;grey50&quot;) +
+    geom_vline(xintercept = mean(topTable$gc_content)) +
+    coord_flip() + 
+    theme(
+      axis.text = element_blank(),
+      axis.title = element_blank(),
+      axis.ticks = element_blank(),
+      panel.grid.major.x = element_blank(),
+      panel.grid.minor.x = element_blank()
+    )
+c &lt;- topTable %&gt;%
+  ggplot(aes(signedRank, ave_tx_len)) +
+  geom_point(aes(colour = DE), alpha = 0.4) +
+  geom_smooth(se = FALSE) +
+  geom_hline(yintercept = 10^mean(log10(topTable$ave_tx_len))) +
+  labs(
+    x = &quot;Rank&quot;, y = &quot;Gene Length (nt)&quot;
+  ) +
+  scale_y_log10(label = comma) +
+  scale_colour_manual(values = c(&quot;grey50&quot;, &quot;red&quot;)) + 
+  theme(legend.position = &quot;none&quot;)
+d &lt;- topTable %&gt;%
+  ggplot(aes(ave_tx_len, stat(density))) +
+  geom_density(colour = &quot;grey50&quot;) +
+  geom_vline(xintercept = 10^mean(log10(topTable$ave_tx_len))) +
+  coord_flip() + 
+  scale_x_log10() +
+  theme(
+    axis.text = element_blank(),
+    axis.title = element_blank(),
+    axis.ticks = element_blank(),
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor.x = element_blank()
+  )
+plot_grid(
+  plot_grid(ngsReports:::.emptyPlot(&quot;&quot;), a, b, rel_widths = c(0.35, 9, 1), align = &quot;h&quot;, nrow = 1),
+  plot_grid(c, d, rel_widths = c(9, 1), align = &quot;h&quot;),
+  nrow = 2,
+  rel_heights = c(1, 1),
+  labels = c(&quot;A&quot;, &quot;B&quot;),
+  align = &quot;v&quot;,
+  axis = &quot;l&quot;
+)</code></pre>
+<div class="figure" style="text-align: center">
+<img src="figure/dge_analysis.Rmd/plotBias-1.png" alt="*Genes ranked for signed differential expression shown against A) GC Content, and B) Gene Length. Ranks were assigned based on the ranking statistic R = -sign(logFC)*log~10~p, such that genes at the left are most down-regulated, whilst those at the right are the most up-regulated. Horizontal black lines indicate the overall average value, whilst blue curves indicate the localised GAM fit. A small positive bias was noted at both extremes for both GC content and Gene Length.*" width="960" />
+<p class="caption">
+<em>Genes ranked for signed differential expression shown against A) GC Content, and B) Gene Length. Ranks were assigned based on the ranking statistic R = -sign(logFC)</em>log<sub>10</sub>p, such that genes at the left are most down-regulated, whilst those at the right are the most up-regulated. Horizontal black lines indicate the overall average value, whilst blue curves indicate the localised GAM fit. A small positive bias was noted at both extremes for both GC content and Gene Length.*
+</p>
+</div>
+</div>
+<div id="exclusion-of-replicate-2" class="section level2">
+<h2>Exclusion of Replicate 2</h2>
+<p>Given the concerns raised by the above MA plot and the checks for bias, the above analysis was repeated, excluding replicate 2 (not shown). Whilst results were broadly comparable, this did not improve the bias observed in the low-expressed genes. Instead, this bias was attributed to genes expressed at low levels in only one of the treatment groups.</p>
+<p>Any enrichment analysis should incorporate a bias offset, such as offered by the package <code>goseq</code>. Enrichment analysis using ranked lists should be undertaken with caution.</p>
+</div>
+<div id="data-export" class="section level2">
+<h2>Data Export</h2>
+<p>These above results were exported as the file <code>MDA-MB-453_RNASeq.tsv</code>.</p>
+<pre class="r"><code>topTable %&gt;%
+  mutate(
+    entrezid = vapply(entrezid, str_flatten, character(1), collapse = &quot;;&quot;)
+  ) %&gt;%
+  write_tsv(
+    path = here::here(&quot;output/MDA-MB-453_RNASeq.tsv&quot;)
+  )</code></pre>
+<p>In addition, the final <code>DGEList</code> was exported for easier integration with subsequent analyses</p>
+<pre class="r"><code>write_rds(
+  dge,
+  file = here::here(&quot;output/dge.rds&quot;)
+)</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -907,11 +1508,12 @@ genesGR &lt;- read_rds(here::here(&quot;output/genesGR.rds&quot;))</code></pre>
 <div id="workflowr-sessioninfo" class="collapse">
 <pre class="r"><code>sessionInfo()</code></pre>
 <pre><code>R version 4.0.2 (2020-06-22)
-Platform: x86_64-conda_cos6-linux-gnu (64-bit)
-Running under: Red Hat Enterprise Linux
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 18.04.5 LTS
 
 Matrix products: default
-BLAS/LAPACK: /hpcfs/users/a1018048/MDA-MB-453_DHT-RNASeq/.snakemake/conda/ea0f62a9/lib/libopenblasp-r0.3.10.so
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.7.1
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.7.1
 
 locale:
  [1] LC_CTYPE=en_AU.UTF-8       LC_NUMERIC=C              
@@ -922,68 +1524,86 @@ locale:
 [11] LC_MEASUREMENT=en_AU.UTF-8 LC_IDENTIFICATION=C       
 
 attached base packages:
-[1] stats4    parallel  stats     graphics  grDevices utils     datasets 
-[8] methods   base     
+ [1] splines   stats4    parallel  stats     graphics  grDevices utils    
+ [8] datasets  methods   base     
 
 other attached packages:
- [1] ensembldb_2.12.1        AnnotationFilter_1.12.0 GenomicFeatures_1.40.0 
- [4] AnnotationDbi_1.50.0    Biobase_2.48.0          GenomicRanges_1.40.0   
- [7] GenomeInfoDb_1.24.0     IRanges_2.22.1          S4Vectors_0.26.0       
-[10] AnnotationHub_2.20.0    BiocFileCache_1.12.0    dbplyr_1.4.4           
-[13] BiocGenerics_0.34.0     edgeR_3.30.0            limma_3.44.1           
-[16] glue_1.4.2              pander_0.6.3            scales_1.1.1           
-[19] yaml_2.2.1              forcats_0.5.0           stringr_1.4.0          
-[22] dplyr_1.0.2             purrr_0.3.4             readr_1.3.1            
-[25] tidyr_1.1.2             tibble_3.0.4            ggplot2_3.3.2          
-[28] tidyverse_1.3.0         workflowr_1.6.2        
+ [1] DT_0.15                 ggrepel_0.8.2           cqn_1.34.0             
+ [4] quantreg_5.73           SparseM_1.78            preprocessCore_1.50.0  
+ [7] nor1mix_1.3-0           mclust_5.4.6            magrittr_1.5           
+[10] ggfortify_0.4.11        cowplot_1.1.0           ensembldb_2.12.1       
+[13] AnnotationFilter_1.12.0 GenomicFeatures_1.40.1  AnnotationDbi_1.50.3   
+[16] Biobase_2.48.0          GenomicRanges_1.40.0    GenomeInfoDb_1.24.2    
+[19] IRanges_2.22.2          S4Vectors_0.26.1        AnnotationHub_2.20.2   
+[22] BiocFileCache_1.12.1    dbplyr_1.4.4            BiocGenerics_0.34.0    
+[25] edgeR_3.30.3            limma_3.44.3            glue_1.4.2             
+[28] pander_0.6.3            scales_1.1.1            yaml_2.2.1             
+[31] forcats_0.5.0           stringr_1.4.0           dplyr_1.0.2            
+[34] purrr_0.3.4             readr_1.4.0             tidyr_1.1.2            
+[37] tibble_3.0.3            ggplot2_3.3.2           tidyverse_1.3.0        
+[40] workflowr_1.6.2        
 
 loaded via a namespace (and not attached):
- [1] colorspace_1.4-1              ellipsis_0.3.1               
- [3] rprojroot_1.3-2               XVector_0.28.0               
- [5] fs_1.5.0                      rstudioapi_0.11              
- [7] bit64_4.0.5                   interactiveDisplayBase_1.26.0
- [9] fansi_0.4.1                   lubridate_1.7.9              
-[11] xml2_1.3.2                    knitr_1.30                   
-[13] jsonlite_1.7.1                Rsamtools_2.4.0              
-[15] broom_0.7.1                   shiny_1.5.0                  
-[17] BiocManager_1.30.10           compiler_4.0.2               
-[19] httr_1.4.2                    backports_1.1.10             
-[21] lazyeval_0.2.2                Matrix_1.2-18                
-[23] assertthat_0.2.1              fastmap_1.0.1                
-[25] cli_2.1.0                     later_1.1.0.1                
-[27] htmltools_0.5.0               prettyunits_1.1.1            
-[29] tools_4.0.2                   gtable_0.3.0                 
-[31] GenomeInfoDbData_1.2.3        rappdirs_0.3.1               
-[33] Rcpp_1.0.4.6                  cellranger_1.1.0             
-[35] vctrs_0.3.4                   Biostrings_2.56.0            
-[37] rtracklayer_1.48.0            xfun_0.18                    
-[39] ps_1.4.0                      rvest_0.3.6                  
-[41] mime_0.9                      lifecycle_0.2.0              
-[43] XML_3.99-0.3                  zlibbioc_1.34.0              
-[45] ProtGenerics_1.20.0           hms_0.5.3                    
-[47] promises_1.1.1                SummarizedExperiment_1.18.1  
-[49] curl_4.3                      memoise_1.1.0                
-[51] biomaRt_2.44.0                stringi_1.5.3                
-[53] RSQLite_2.2.1                 BiocVersion_3.11.1           
-[55] BiocParallel_1.22.0           matrixStats_0.57.0           
-[57] rlang_0.4.7                   pkgconfig_2.0.3              
-[59] bitops_1.0-6                  evaluate_0.14                
-[61] lattice_0.20-41               GenomicAlignments_1.24.0     
-[63] bit_4.0.4                     tidyselect_1.1.0             
-[65] here_0.1                      magrittr_1.5                 
-[67] R6_2.4.1                      generics_0.0.2               
-[69] DelayedArray_0.14.0           DBI_1.1.0                    
-[71] pillar_1.4.6                  haven_2.3.1                  
-[73] whisker_0.4                   withr_2.3.0                  
-[75] RCurl_1.98-1.2                modelr_0.1.8                 
-[77] crayon_1.3.4                  rmarkdown_2.4                
-[79] progress_1.2.2                locfit_1.5-9.4               
-[81] grid_4.0.2                    readxl_1.3.1                 
-[83] blob_1.2.1                    git2r_0.27.1                 
-[85] reprex_0.3.0                  digest_0.6.25                
-[87] xtable_1.8-4                  httpuv_1.5.4                 
-[89] openssl_1.4.3                 munsell_0.5.0                
-[91] askpass_1.1                  </code></pre>
+  [1] readxl_1.3.1                  backports_1.1.10             
+  [3] plyr_1.8.6                    lazyeval_0.2.2               
+  [5] crosstalk_1.1.0.1             BiocParallel_1.22.0          
+  [7] digest_0.6.25                 htmltools_0.5.0              
+  [9] fansi_0.4.1                   memoise_1.1.0                
+ [11] cluster_2.1.0                 Biostrings_2.56.0            
+ [13] modelr_0.1.8                  matrixStats_0.57.0           
+ [15] askpass_1.1                   prettyunits_1.1.1            
+ [17] jpeg_0.1-8.1                  colorspace_1.4-1             
+ [19] blob_1.2.1                    rvest_0.3.6                  
+ [21] rappdirs_0.3.1                haven_2.3.1                  
+ [23] xfun_0.18                     crayon_1.3.4                 
+ [25] RCurl_1.98-1.2                jsonlite_1.7.1               
+ [27] zoo_1.8-8                     gtable_0.3.0                 
+ [29] zlibbioc_1.34.0               XVector_0.28.0               
+ [31] MatrixModels_0.4-1            DelayedArray_0.14.1          
+ [33] DBI_1.1.0                     Rcpp_1.0.5                   
+ [35] viridisLite_0.3.0             xtable_1.8-4                 
+ [37] progress_1.2.2                flashClust_1.01-2            
+ [39] bit_4.0.4                     htmlwidgets_1.5.2            
+ [41] httr_1.4.2                    RColorBrewer_1.1-2           
+ [43] ellipsis_0.3.1                pkgconfig_2.0.3              
+ [45] XML_3.99-0.5                  farver_2.0.3                 
+ [47] locfit_1.5-9.4                here_0.1                     
+ [49] reshape2_1.4.4                tidyselect_1.1.0             
+ [51] labeling_0.3                  rlang_0.4.7                  
+ [53] later_1.1.0.1                 munsell_0.5.0                
+ [55] BiocVersion_3.11.1            cellranger_1.1.0             
+ [57] tools_4.0.2                   cli_2.0.2                    
+ [59] generics_0.0.2                RSQLite_2.2.1                
+ [61] broom_0.7.1                   ggdendro_0.1.22              
+ [63] evaluate_0.14                 fastmap_1.0.1                
+ [65] knitr_1.30                    bit64_4.0.5                  
+ [67] fs_1.5.0                      nlme_3.1-149                 
+ [69] whisker_0.4                   mime_0.9                     
+ [71] leaps_3.1                     xml2_1.3.2                   
+ [73] biomaRt_2.44.1                compiler_4.0.2               
+ [75] rstudioapi_0.11               png_0.1-7                    
+ [77] plotly_4.9.2.1                curl_4.3                     
+ [79] interactiveDisplayBase_1.26.3 reprex_0.3.0                 
+ [81] statmod_1.4.34                stringi_1.5.3                
+ [83] highr_0.8                     lattice_0.20-41              
+ [85] ProtGenerics_1.20.0           Matrix_1.2-18                
+ [87] vctrs_0.3.4                   pillar_1.4.6                 
+ [89] lifecycle_0.2.0               BiocManager_1.30.10          
+ [91] data.table_1.13.0             bitops_1.0-6                 
+ [93] conquer_1.0.2                 httpuv_1.5.4                 
+ [95] rtracklayer_1.48.0            latticeExtra_0.6-29          
+ [97] hwriter_1.3.2                 R6_2.4.1                     
+ [99] ShortRead_1.46.0              promises_1.1.1               
+[101] gridExtra_2.3                 MASS_7.3-53                  
+[103] ngsReports_1.5.6              assertthat_0.2.1             
+[105] SummarizedExperiment_1.18.2   openssl_1.4.3                
+[107] rprojroot_1.3-2               withr_2.3.0                  
+[109] GenomicAlignments_1.24.0      Rsamtools_2.4.0              
+[111] GenomeInfoDbData_1.2.3        mgcv_1.8-33                  
+[113] hms_0.5.3                     grid_4.0.2                   
+[115] rmarkdown_2.4                 git2r_0.27.1                 
+[117] scatterplot3d_0.3-41          shiny_1.5.0                  
+[119] lubridate_1.7.9               FactoMineR_2.3               </code></pre>
 </div>
 </div>
 </div>
@@ -1000,8 +1620,6 @@ footer is added to webpages before the MathJax javascript. -->
     "HTML-CSS": { availableFonts: ["TeX"] }
   });
 </script>
-
-
 
 
 </div>
