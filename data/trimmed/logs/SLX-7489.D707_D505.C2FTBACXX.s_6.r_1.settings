@@ -1,0 +1,85 @@
+AdapterRemoval ver. 2.3.1
+Trimming of single-end reads
+
+
+[Adapter sequences]
+Adapter1[1]: AGATCGGAAGAGCACACGTCTGAACTCCAGTCA
+Adapter2[1]: AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT
+
+
+[Adapter trimming]
+RNG seed: 247805576
+Alignment shift value: 2
+Global mismatch threshold: 0.333333
+Quality format (input): Phred+33
+Quality score max (input): 41
+Quality format (output): Phred+33
+Quality score max (output): 41
+Mate-number separator (input): '/'
+Trimming 5p: 0
+Trimming 3p: 0
+Trimming Ns: No
+Trimming Phred scores <= 30: Yes
+Trimming using sliding windows: No
+Minimum genomic length: 35
+Maximum genomic length: 4294967295
+Collapse overlapping reads: No
+Minimum overlap (in case of collapse): 11
+Minimum adapter overlap: 0
+
+
+[Trimming statistics]
+Total number of reads: 2762987
+Number of unaligned reads: 2302261
+Number of well aligned reads: 460726
+Number of discarded mate 1 reads: 77148
+Number of singleton mate 1 reads: 2685839
+Number of reads with adapters[1]: 460726
+Number of retained reads: 2685839
+Number of retained nucleotides: 106390634
+Average length of retained reads: 39.6117
+
+
+[Length distribution]
+Length	Mate1	Discarded	All
+0	0	2514	2514
+1	0	16	16
+2	0	21	21
+3	0	12	12
+4	0	9	9
+5	0	8	8
+6	0	12	12
+7	0	21	21
+8	0	21	21
+9	0	29	29
+10	0	58	58
+11	0	58	58
+12	0	86	86
+13	0	84	84
+14	0	110	110
+15	0	142	142
+16	0	176	176
+17	0	192	192
+18	0	311	311
+19	0	469	469
+20	0	471	471
+21	0	587	587
+22	0	1231	1231
+23	0	1140	1140
+24	0	1844	1844
+25	0	3227	3227
+26	0	2310	2310
+27	0	4208	4208
+28	0	9554	9554
+29	0	4916	4916
+30	0	10845	10845
+31	0	3661	3661
+32	0	4966	4966
+33	0	8124	8124
+34	0	15715	15715
+35	15422	0	15422
+36	31488	0	31488
+37	74914	0	74914
+38	166956	0	166956
+39	281210	0	281210
+40	2115849	0	2115849

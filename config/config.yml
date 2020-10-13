@@ -23,7 +23,7 @@ ref:
 # indexing_extra, whilst additional parameters for alignment are passed through
 # align_extra
 star:
-  sjdbOverhang: 100
+  sjdbOverhang: 39
   indexing_extra: ""
   align_extra: "--outSAMtype BAM SortedByCoordinate"
 
