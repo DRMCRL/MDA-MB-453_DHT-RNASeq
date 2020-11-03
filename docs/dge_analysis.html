@@ -441,7 +441,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Differential Gene Expression</h1>
 <h4 class="author">Stephen Pederson</h4>
-<h4 class="date">13 October, 2020</h4>
+<h4 class="date">03 November, 2020</h4>
 
 </div>
 
@@ -466,7 +466,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-10-13
+<strong>Last updated:</strong> 2020-11-03
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -557,16 +557,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomDRMCRLMDAMB453DHTRNASeqtreef6ff160a227ae55293eaaf53b14a27897de11fa7targetblankf6ff160a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/tree/f6ff160a227ae55293eaaf53b14a27897de11fa7" target="_blank">f6ff160</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomDRMCRLMDAMB453DHTRNASeqtreeb1df68ce5373a7929b0e561bf4d939d6fbd096ddtargetblankb1df68ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/tree/b1df68ce5373a7929b0e561bf4d939d6fbd096dd" target="_blank">b1df68c</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomDRMCRLMDAMB453DHTRNASeqtreef6ff160a227ae55293eaaf53b14a27897de11fa7targetblankf6ff160a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomDRMCRLMDAMB453DHTRNASeqtreeb1df68ce5373a7929b0e561bf4d939d6fbd096ddtargetblankb1df68ca" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/tree/f6ff160a227ae55293eaaf53b14a27897de11fa7" target="_blank">f6ff160</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/tree/b1df68ce5373a7929b0e561bf4d939d6fbd096dd" target="_blank">b1df68c</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -577,13 +577,7 @@ Ignored files:
     Ignored:    .Rproj.user/
 
 Untracked files:
-    Untracked:  analysis/makeTidyGraph.R
-    Untracked:  analysis/plotTidyGraph.R
-    Untracked:  output/MDA-MB-453_RNASeq.tsv
-    Untracked:  output/dge.rds
-
-Unstaged changes:
-    Modified:   analysis/_site.yml
+    Untracked:  output/MDA-MB-453_CPM.tsv
 
 </code></pre>
 <p>
@@ -622,6 +616,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/blob/b1df68ce5373a7929b0e561bf4d939d6fbd096dd/analysis/dge_analysis.Rmd" target="_blank">b1df68c</a>
+</td>
+<td>
+Steve Ped
+</td>
+<td>
+2020-11-03
+</td>
+<td>
+Added export of CPM values
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/DRMCRL/MDA-MB-453_DHT-RNASeq/1d06dff563725688789f0fb9c68f321c15663e79/docs/dge_analysis.html" target="_blank">1d06dff</a>
+</td>
+<td>
+Steve Ped
+</td>
+<td>
+2020-10-13
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -932,6 +960,43 @@ plot_grid(
 <em>Distributions of logCPM values on merged counts, A) before and B) after filtering of undetectable genes. Some differences between replicates were noted.</em>
 </p>
 </div>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-plotDensities-1">
+Past versions of plotDensities-1.png
+</button>
+</p>
+<div id="fig-plotDensities-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/blob/1d06dff563725688789f0fb9c68f321c15663e79/docs/figure/dge_analysis.Rmd/plotDensities-1.png" target="_blank">1d06dff</a>
+</td>
+<td>
+Steve Ped
+</td>
+<td>
+2020-10-13
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>dge &lt;- mergedCounts[genes2Keep,] %&gt;%
   DGEList(
     samples = mergedSamples %&gt;%
@@ -968,6 +1033,43 @@ plot_grid(
 <p class="caption">
 <em>Library sizes after removal of undetectable genes. The common-use minimum library size of 10 million reads is shown as a dashed line.</em>
 </p>
+</div>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-plotLibSizes-1">
+Past versions of plotLibSizes-1.png
+</button>
+</p>
+<div id="fig-plotLibSizes-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/blob/1d06dff563725688789f0fb9c68f321c15663e79/docs/figure/dge_analysis.Rmd/plotLibSizes-1.png" target="_blank">1d06dff</a>
+</td>
+<td>
+Steve Ped
+</td>
+<td>
+2020-10-13
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <p>Given that previous work had only assessed the libraries prior to merging, the library sizes were checked after merging replicate sequencing runs. The median library size was found to be 13.6 million reads which is just above the common-use minimum recommendation of 10 million reads/sample.</p>
 <p>However, sample MDA6 was below the common-use minimum library size in both treatment groups and whilst discarding this sample is not advised, this should be noted for all downstream analysis. Similarly, the DHT-treated sample for MDA2 showed a library size which was nearly double the rest of the samples</p>
@@ -1044,6 +1146,43 @@ plot_grid(
 <em>PCA on logCPM from merged counts. Replicate 2 appears problematic in both treatments, whilst the Vehicle samples from replicate 5 also appears slightly divergent from other vehicle samples. PC1 appears to capture a non-experimental artefact whilst PC2 captures most of the intended biology, as shown by the arrows which move from Vehicle to DHT treated samples.</em>
 </p>
 </div>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-plotPCA-1">
+Past versions of plotPCA-1.png
+</button>
+</p>
+<div id="fig-plotPCA-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/blob/1d06dff563725688789f0fb9c68f321c15663e79/docs/figure/dge_analysis.Rmd/plotPCA-1.png" target="_blank">1d06dff</a>
+</td>
+<td>
+Steve Ped
+</td>
+<td>
+2020-10-13
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Despite concerns raised by the library sizes, sample MDA6 appears to be relatively consistent with other samples of the same treatment group. However, MDA2 showed significant divergence from the others in both treatment groups, whilst the vehicle-treated (i.e. control) sample from MDA5 was also a notable outlier.</p>
 </div>
 <div id="checks-for-gc-and-length-bias" class="section level2">
@@ -1105,6 +1244,43 @@ H_0: \mu = 0 \text{ against } H_A: \mu \neq 0
 <p class="caption">
 <em>Contribution of each GC/Length Bin to PC1 and PC2. Fill colours indicate the t-statistic, with tranparency denoting significance as -log10(p), using Bonferroni-adjusted p-values. The number of genes in each bin is indicated by the circle size. The clear pattern across PC1 is unambiguous.</em>
 </p>
+</div>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-plotPCA_GC_Length-1">
+Past versions of plotPCA_GC_Length-1.png
+</button>
+</p>
+<div id="fig-plotPCA_GC_Length-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/blob/1d06dff563725688789f0fb9c68f321c15663e79/docs/figure/dge_analysis.Rmd/plotPCA_GC_Length-1.png" target="_blank">1d06dff</a>
+</td>
+<td>
+Steve Ped
+</td>
+<td>
+2020-10-13
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <p>Given these results, the considered options for analysis are:</p>
 <ul>
@@ -1168,6 +1344,43 @@ plot_grid(
 <p class="caption">
 <em>Model fits used when applying CQN. The divergent samples previously noted on the PCA are again quite divergent here. In particular, the long genes with low GC content appear to be where the primary differences are found, in keeping with the previous PCA analysis.</em>
 </p>
+</div>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-plotCQN-1">
+Past versions of plotCQN-1.png
+</button>
+</p>
+<div id="fig-plotCQN-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/blob/1d06dff563725688789f0fb9c68f321c15663e79/docs/figure/dge_analysis.Rmd/plotCQN-1.png" target="_blank">1d06dff</a>
+</td>
+<td>
+Steve Ped
+</td>
+<td>
+2020-10-13
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <pre class="r"><code>pcaPost &lt;- logCPM %&gt;%
   t() %&gt;%
@@ -1238,6 +1451,43 @@ plot_grid(
 <em>PCA on logCPM after performing CQN. Much of the variability previously seen in with replicate 5 has now been minimised, whilst replicate 2 still appears to be a considerable outlier. However, PC1 and PC2 now capture the biology in question, with vectors denoting the shift from vehicle to treatment shown as arrows shown in panel C. Panel B does highlight that along PC2 the control sample from replicate 2 does more closely resemble the treated samples from all other replicates.</em>
 </p>
 </div>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-plotPcaPost-1">
+Past versions of plotPcaPost-1.png
+</button>
+</p>
+<div id="fig-plotPcaPost-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/blob/1d06dff563725688789f0fb9c68f321c15663e79/docs/figure/dge_analysis.Rmd/plotPcaPost-1.png" target="_blank">1d06dff</a>
+</td>
+<td>
+Steve Ped
+</td>
+<td>
+2020-10-13
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>dge$genes %&gt;%
   dplyr::select(gene_id, ave_tx_len, gc_content) %&gt;%
   mutate(
@@ -1288,6 +1538,43 @@ plot_grid(
 <p class="caption">
 <em>Contributions of gene length and GC content to PC1 shown both before and after CQN. The strong patterns seen before normalisation have clearly been reduced. Fill colours indicate the t-statistic, with tranparency denoting significance as -log10(p), using Bonferroni-adjusted p-values. The number of genes in each bin is indicated by the circle size. The clear pattern across PC1 is unambiguous.</em>
 </p>
+</div>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-plotPCA_GC_post-1">
+Past versions of plotPCA_GC_post-1.png
+</button>
+</p>
+<div id="fig-plotPCA_GC_post-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/blob/1d06dff563725688789f0fb9c68f321c15663e79/docs/figure/dge_analysis.Rmd/plotPCA_GC_post-1.png" target="_blank">1d06dff</a>
+</td>
+<td>
+Steve Ped
+</td>
+<td>
+2020-10-13
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <p>CQN clearly had a positive impact on the data, however, the exclusion of replicate 2 may still be an option. Given the consistency seen with the post-CQN PCA, using a blocking approach will also be the preferred analytic approach.</p>
 </div>
@@ -1353,6 +1640,43 @@ H_A: |\mu| &gt; \lambda
 <em>MA plot with blue curve through the data showing the GAM fit. The curve for low-expressed genes indicated a potential bias remains in the data, whilst this is not evident for highly expressed genes. DE genes are highlighted in red.</em>
 </p>
 </div>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-plotMA-1">
+Past versions of plotMA-1.png
+</button>
+</p>
+<div id="fig-plotMA-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/blob/1d06dff563725688789f0fb9c68f321c15663e79/docs/figure/dge_analysis.Rmd/plotMA-1.png" target="_blank">1d06dff</a>
+</td>
+<td>
+Steve Ped
+</td>
+<td>
+2020-10-13
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>topTable %&gt;%
   ggplot(aes(logFC, -log10(PValue))) +
   geom_point(
@@ -1381,6 +1705,43 @@ H_A: |\mu| &gt; \lambda
 <em>Volcano plot showing significance against log fold-change. The common-use cutoff values for considering a gene as DE (|logFC| &gt; 1) are shown in blue as a guide only as these were not used for this analysis.</em>
 </p>
 </div>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-plotVolcano-1">
+Past versions of plotVolcano-1.png
+</button>
+</p>
+<div id="fig-plotVolcano-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/blob/1d06dff563725688789f0fb9c68f321c15663e79/docs/figure/dge_analysis.Rmd/plotVolcano-1.png" target="_blank">1d06dff</a>
+</td>
+<td>
+Steve Ped
+</td>
+<td>
+2020-10-13
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>topTable %&gt;%
   dplyr::filter(DE) %&gt;%
   dplyr::select(-DE, -gc_content, -ave_tx_len, -contains(&quot;rank&quot;)) %&gt;%
@@ -1406,11 +1767,85 @@ H_A: |\mu| &gt; \lambda
 <em>Top ranked up-regulated genes</em>
 </p>
 </div>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-plotTopUp-1">
+Past versions of plotTopUp-1.png
+</button>
+</p>
+<div id="fig-plotTopUp-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/blob/1d06dff563725688789f0fb9c68f321c15663e79/docs/figure/dge_analysis.Rmd/plotTopUp-1.png" target="_blank">1d06dff</a>
+</td>
+<td>
+Steve Ped
+</td>
+<td>
+2020-10-13
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <div class="figure" style="text-align: center">
 <img src="figure/dge_analysis.Rmd/plotTopDown-1.png" alt="*Top ranked down-regulated genes*" width="960" />
 <p class="caption">
 <em>Top ranked down-regulated genes</em>
 </p>
+</div>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-plotTopDown-1">
+Past versions of plotTopDown-1.png
+</button>
+</p>
+<div id="fig-plotTopDown-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/blob/1d06dff563725688789f0fb9c68f321c15663e79/docs/figure/dge_analysis.Rmd/plotTopDown-1.png" target="_blank">1d06dff</a>
+</td>
+<td>
+Steve Ped
+</td>
+<td>
+2020-10-13
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -1478,6 +1913,43 @@ plot_grid(
 <em>Genes ranked for signed differential expression shown against A) GC Content, and B) Gene Length. Ranks were assigned based on the ranking statistic R = -sign(logFC)</em>log<sub>10</sub>p, such that genes at the left are most down-regulated, whilst those at the right are the most up-regulated. Horizontal black lines indicate the overall average value, whilst blue curves indicate the localised GAM fit. A small positive bias was noted at both extremes for both GC content and Gene Length.*
 </p>
 </div>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-plotBias-1">
+Past versions of plotBias-1.png
+</button>
+</p>
+<div id="fig-plotBias-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/blob/1d06dff563725688789f0fb9c68f321c15663e79/docs/figure/dge_analysis.Rmd/plotBias-1.png" target="_blank">1d06dff</a>
+</td>
+<td>
+Steve Ped
+</td>
+<td>
+2020-10-13
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="exclusion-of-replicate-2" class="section level2">
 <h2>Exclusion of Replicate 2</h2>
@@ -1494,11 +1966,17 @@ plot_grid(
   write_tsv(
     path = here::here(&quot;output/MDA-MB-453_RNASeq.tsv&quot;)
   )</code></pre>
-<p>In addition, the final <code>DGEList</code> was exported for easier integration with subsequent analyses</p>
+<p>In addition, the final <code>DGEList</code> was exported for easier integration with subsequent analyses, as were the CPM values for all detected genes</p>
 <pre class="r"><code>write_rds(
   dge,
   file = here::here(&quot;output/dge.rds&quot;)
 )</code></pre>
+<pre class="r"><code>cpm(dge) %&gt;%
+  as.data.frame() %&gt;%
+  rownames_to_column(&quot;gene_id&quot;) %&gt;%
+  mutate(gene_name = dge$genes$gene_name) %&gt;%
+  dplyr::select(starts_with(&quot;gene&quot;), everything()) %&gt;%
+  write_tsv(&quot;output/MDA-MB-453_CPM.tsv&quot;)</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1507,7 +1985,7 @@ plot_grid(
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 4.0.2 (2020-06-22)
+<pre><code>R version 4.0.3 (2020-10-10)
 Platform: x86_64-pc-linux-gnu (64-bit)
 Running under: Ubuntu 18.04.5 LTS
 
@@ -1572,7 +2050,7 @@ loaded via a namespace (and not attached):
  [51] labeling_0.3                  rlang_0.4.7                  
  [53] later_1.1.0.1                 munsell_0.5.0                
  [55] BiocVersion_3.11.1            cellranger_1.1.0             
- [57] tools_4.0.2                   cli_2.0.2                    
+ [57] tools_4.0.3                   cli_2.0.2                    
  [59] generics_0.0.2                RSQLite_2.2.1                
  [61] broom_0.7.1                   ggdendro_0.1.22              
  [63] evaluate_0.14                 fastmap_1.0.1                
@@ -1580,7 +2058,7 @@ loaded via a namespace (and not attached):
  [67] fs_1.5.0                      nlme_3.1-149                 
  [69] whisker_0.4                   mime_0.9                     
  [71] leaps_3.1                     xml2_1.3.2                   
- [73] biomaRt_2.44.1                compiler_4.0.2               
+ [73] biomaRt_2.44.1                compiler_4.0.3               
  [75] rstudioapi_0.11               png_0.1-7                    
  [77] plotly_4.9.2.1                curl_4.3                     
  [79] interactiveDisplayBase_1.26.3 reprex_0.3.0                 
@@ -1600,7 +2078,7 @@ loaded via a namespace (and not attached):
 [107] rprojroot_1.3-2               withr_2.3.0                  
 [109] GenomicAlignments_1.24.0      Rsamtools_2.4.0              
 [111] GenomeInfoDbData_1.2.3        mgcv_1.8-33                  
-[113] hms_0.5.3                     grid_4.0.2                   
+[113] hms_0.5.3                     grid_4.0.3                   
 [115] rmarkdown_2.4                 git2r_0.27.1                 
 [117] scatterplot3d_0.3-41          shiny_1.5.0                  
 [119] lubridate_1.7.9               FactoMineR_2.3               </code></pre>
