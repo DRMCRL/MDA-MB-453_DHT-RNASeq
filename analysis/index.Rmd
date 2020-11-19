@@ -10,7 +10,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-Complete processing and analysis of RNA-Seq data from MDA-MB-353 cells.
+Complete processing and analysis of RNA-Seq data from MDA-MB-453 cells.
 
 - Cells were treated with DHT or with Empty Vehicle.
 - Sequencing was performed by the Genomics Core Facility in Cambridge (CRUK CI)
