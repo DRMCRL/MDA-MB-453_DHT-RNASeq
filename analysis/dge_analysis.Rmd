@@ -527,7 +527,8 @@ c <- pcaPost %>%
       pivot_longer(cols = starts_with("PC"), names_to = "PC", values_to = "value") %>% 
       pivot_wider(names_from = c("treat", "PC"), values_from = value, id_cols = c("rep")),
     alpha = 0.4,
-    arrow = arrow()
+    arrow = arrow(),
+    show.legend = FALSE
   ) +
   scale_colour_manual(values= rep_cols) +
   labs(
@@ -542,6 +543,11 @@ plot_grid(
   labels = LETTERS[1:3],
   nrow = 2
 )
+pdf(
+  here::here("docs/assets/pcaPost.pdf"), width = 8, height = 8
+)
+c
+dev.off()
 ```
 
 
