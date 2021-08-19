@@ -517,16 +517,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomDRMCRLMDAMB453DHTRNASeqtree745652668b05303a256e152a6d4c1dabe18c8fddtargetblank7456526a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/tree/745652668b05303a256e152a6d4c1dabe18c8fdd" target="_blank">7456526</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomDRMCRLMDAMB453DHTRNASeqtree28421b79fa110a042a0a486dd6cf4aa09e059bb4targetblank28421b7a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/tree/28421b79fa110a042a0a486dd6cf4aa09e059bb4" target="_blank">28421b7</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomDRMCRLMDAMB453DHTRNASeqtree745652668b05303a256e152a6d4c1dabe18c8fddtargetblank7456526a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomDRMCRLMDAMB453DHTRNASeqtree28421b79fa110a042a0a486dd6cf4aa09e059bb4targetblank28421b7a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/tree/745652668b05303a256e152a6d4c1dabe18c8fdd" target="_blank">7456526</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/tree/28421b79fa110a042a0a486dd6cf4aa09e059bb4" target="_blank">28421b7</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -535,10 +535,6 @@ Note that you need to be careful to ensure that all relevant files for the analy
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-
-Unstaged changes:
-    Modified:   output/MDA-MB-453_RNASeq.tsv
-    Modified:   output/dge.rds
 
 </code></pre>
 <p>
@@ -577,6 +573,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/blob/28421b79fa110a042a0a486dd6cf4aa09e059bb4/analysis/dge_analysis.Rmd" target="_blank">28421b7</a>
+</td>
+<td>
+Steve Ped
+</td>
+<td>
+2021-08-20
+</td>
+<td>
+Exported PCA as pdf
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/DRMCRL/MDA-MB-453_DHT-RNASeq/838f1b8754b7ac9bd880e7dd2921a65bbb8d1e99/docs/dge_analysis.html" target="_blank">838f1b8</a>
+</td>
+<td>
+Steve Ped
+</td>
+<td>
+2021-08-20
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1460,7 +1490,8 @@ c &lt;- pcaPost %&gt;%
       pivot_longer(cols = starts_with(&quot;PC&quot;), names_to = &quot;PC&quot;, values_to = &quot;value&quot;) %&gt;% 
       pivot_wider(names_from = c(&quot;treat&quot;, &quot;PC&quot;), values_from = value, id_cols = c(&quot;rep&quot;)),
     alpha = 0.4,
-    arrow = arrow()
+    arrow = arrow(),
+    show.legend = FALSE
   ) +
   scale_colour_manual(values= rep_cols) +
   labs(
@@ -1518,6 +1549,13 @@ Steve Ped
 </table>
 </div>
 </div>
+<pre class="r"><code>pdf(
+  here::here(&quot;docs/assets/pcaPost.pdf&quot;), width = 8, height = 8
+)
+c
+dev.off()</code></pre>
+<pre><code>png 
+  2 </code></pre>
 <pre class="r"><code>dge$genes %&gt;%
   dplyr::select(gene_id, ave_tx_len, gc_content) %&gt;%
   mutate(
@@ -1694,6 +1732,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/blob/838f1b8754b7ac9bd880e7dd2921a65bbb8d1e99/docs/figure/dge_analysis.Rmd/plotMA-1.png" target="_blank">838f1b8</a>
+</td>
+<td>
+Steve Ped
+</td>
+<td>
+2021-08-20
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/blob/1d06dff563725688789f0fb9c68f321c15663e79/docs/figure/dge_analysis.Rmd/plotMA-1.png" target="_blank">1d06dff</a>
 </td>
 <td>
@@ -1764,6 +1813,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/blob/838f1b8754b7ac9bd880e7dd2921a65bbb8d1e99/docs/figure/dge_analysis.Rmd/plotVolcano-1.png" target="_blank">838f1b8</a>
+</td>
+<td>
+Steve Ped
+</td>
+<td>
+2021-08-20
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/blob/1d06dff563725688789f0fb9c68f321c15663e79/docs/figure/dge_analysis.Rmd/plotVolcano-1.png" target="_blank">1d06dff</a>
 </td>
 <td>
@@ -1831,6 +1891,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/blob/838f1b8754b7ac9bd880e7dd2921a65bbb8d1e99/docs/figure/dge_analysis.Rmd/plotTopUp-1.png" target="_blank">838f1b8</a>
+</td>
+<td>
+Steve Ped
+</td>
+<td>
+2021-08-20
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/blob/1d06dff563725688789f0fb9c68f321c15663e79/docs/figure/dge_analysis.Rmd/plotTopUp-1.png" target="_blank">1d06dff</a>
 </td>
 <td>
@@ -1872,6 +1943,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/blob/838f1b8754b7ac9bd880e7dd2921a65bbb8d1e99/docs/figure/dge_analysis.Rmd/plotTopDown-1.png" target="_blank">838f1b8</a>
+</td>
+<td>
+Steve Ped
+</td>
+<td>
+2021-08-20
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/DRMCRL/MDA-MB-453_DHT-RNASeq/blob/1d06dff563725688789f0fb9c68f321c15663e79/docs/figure/dge_analysis.Rmd/plotTopDown-1.png" target="_blank">1d06dff</a>
