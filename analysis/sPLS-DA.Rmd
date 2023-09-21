@@ -1,0 +1,219 @@
+---
+title: "sPLS-DA"
+author: "Wenjun Nora Liu<br>Dame Roma Mitchell Cancer Research Laboratories<br>Adelaide Medical School<br>University of Adelaide"
+output: html_document
+date: "2023-09-19"
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+    autodep = TRUE,
+	echo = TRUE,
+	warning = FALSE,
+	message = FALSE
+)
+```
+
+```{r packages}
+library(tidyverse)
+library(yaml)
+library(scales)
+library(pander)
+library(AnnotationHub)
+library(ggraph)
+library(igraph)
+library(ensembldb)
+library(cowplot)
+library(magrittr)
+library(sSNAPPY)
+library(cqn)
+library(DT)
+library(multcomp)
+library(rvest)
+library(ggfortify)
+library(xml2)
+library(org.Hs.eg.db)
+library(lme4)
+library(colorspace)
+library(lmerTest)
+library(reactable)
+library(corrplot)
+library(scatterpie)
+library(htmltools)
+library(RColorBrewer)
+library(msigdbr)
+library(UpSetR)
+library(glue)
+library(ggfortify)
+library(pheatmap)
+library(parallel)
+library(ggplotify)
+library(edgeR)
+library(plotly)
+library(ggforce)
+library(ggnewscale)
+library(concaveman)
+library(WGCNA)
+library(ggforce)
+library(ggrepel)
+# library(ISOpureR)
+library(mixOmics)
+library(ExperimentHub)
+library(singscore)
+library(grid)
+```
+
+
+```{r options}
+panderOptions("table.split.table", Inf)
+panderOptions("big.mark", ",")
+theme_set(theme_bw())
+```
+
+```{r config}
+config <- here::here("config/config.yml") %>%
+  read_yaml()
+suffix <- paste0(config$tag)
+sp <- config$ref$species %>%
+  str_replace("(^[a-z])[a-z]*_([a-z]+)", "\\1\\2") %>%
+  str_to_title()
+```
+
+```{r}
+if (!dir.exists(here::here("docs/assets"))) dir.create(here::here("docs/assets"))
+```
+
+
+# Setup
+
+## Gene Annotations
+
+```{r ah}
+ah <- AnnotationHub() %>%
+  subset(rdataclass == "EnsDb") %>%
+  subset(str_detect(description, as.character(config$ref$release))) %>%
+  subset(genome == config$ref$build)
+stopifnot(length(ah) == 1)
+```
+
+```{r ensDb}
+ensDb <- ah[[1]]
+genesGR <- read_rds(here::here("output/genesGR.rds"))
+```
+
+Gene annotations were again loaded from Ensembl Release `r ensemblVersion(ensDb)`.
+The [previously defined](qc_aligned.html#Annotation_Setup) `GenomicRanges` object containing GC content and Gene Length was also loaded,
+containing information for `r comma(length(genesGR))` genes.
+
+## Read in data
+
+```{r}
+diag_cols <- readRDS("~/GSE800098/output/diag_cols.rds")
+```
+
+The filtered and normalised `DGEList` was loaded in. 
+
+```{r importData}
+dge <- here::here("output/dge.rds") %>%
+  read_rds()
+logCPM <- dge$counts %>%
+  edgeR::cpm(log = TRUE)
+```
+
+
+# Marker Gene Expression
+
+Firstly, expressions levels of a few ILC marker genes in the treated vs control sample were explroed. 
+
+```{r}
+geneOfInterest <- dge$genes %>%
+    dplyr::filter(gene_name %in% c("CDH1", "TBX3", "FOXA1", "GATA3", "PIK3CA", "PTEN", "AKT1")) %>%
+    pull(gene_id)
+```
+
+Compared to GATA3 and FOXA1, CDH1 is lowly expressed in all samples. 
+
+```{r, fig.height=10, fig.width=12, fig.cap="*LogCPM expressions of ILC markers in all samples, colored by treatment group. "}
+logCPM %>%
+  .[rownames(.) %in% geneOfInterest, ] %>%
+  as.data.frame() %>%
+  rownames_to_column("gene_id") %>%
+  pivot_longer(
+    cols = -"gene_id", 
+    names_to = "name", 
+    values_to = "logCPM"
+  ) %>%
+  left_join(dge$samples) %>%
+  left_join(dge$genes) %>%
+  ggplot(
+    aes(group, logCPM, color = group)
+  ) +
+  geom_boxplot() +
+  theme(
+    axis.text.x = element_blank(), 
+    axis.ticks.x = element_blank()
+  )+
+  xlab("") +
+  facet_wrap(~gene_name)
+```
+
+
+# sPLS-DA 
+
+sPLS-DA model trained using the TCGA data was loaded here and used to predict the labels of all pre-treatment samples. 
+
+```{r}
+splsda.final <- readRDS(
+    file = "~/20131906_HickeyT_JC_NormalBreast/output/splsda_model.rds"
+)
+```
+
+To apply the classifier, the logCPM matrix must firstly be scaled. 
+
+```{r}
+logCPM2 <- logCPM
+newRowname <- mapIds(ensDb, rownames(logCPM), "GENENAME", keytype = "GENEID" ) %>%
+  unname()
+# Rows with duplicated row names were removed
+logCPM2 <- logCPM2[!duplicated(newRowname),]
+rownames(logCPM2) <- newRowname[!duplicated(newRowname)]
+cpm_scaled <- apply(logCPM2, 1, function(x)( x - mean(x))/sd(x))
+missingGene <- setdiff(colnames(splsda.final$X), colnames(cpm_scaled))
+temp <- matrix(0, ncol = length(missingGene), nrow = ncol(logCPM2))
+rownames(temp) <- colnames(logCPM2)
+colnames(temp) <- missingGene
+cpm_scaled <- cbind(cpm_scaled, temp)
+cpm_scaled <- cpm_scaled%>%
+    .[, match(colnames(splsda.final$X), colnames(.))]
+```
+
+Interestingly, out of the 6 untreated replicates, only 3 of them were predicted to be ILC by the sPLS-DA classifier. 
+
+```{r}
+untreatedSample <- dge$samples %>%
+  dplyr::filter(treat == "Vehicle") %>%
+  rownames()
+splsda.pred <- predict(splsda.final,
+                       cpm_scaled %>%
+                         .[rownames(.) %in% untreatedSample,], 
+                       dist = "all")
+
+temp <- splsda.pred$class$mahalanobis.dist %>%
+    as.data.frame() %>%
+    rownames_to_column("name") %>%
+    left_join(dge$samples) %>%
+    dplyr::select(rep, "comp2") %>%
+    unique() %>%
+    mutate_all(as.factor) 
+temp %>%
+    datatable(
+        filter = "top", 
+        height = 700,
+    ) %>%
+    formatStyle(
+        c( "comp2"),
+        color = styleEqual(names(diag_cols), diag_cols)
+    ) 
+```

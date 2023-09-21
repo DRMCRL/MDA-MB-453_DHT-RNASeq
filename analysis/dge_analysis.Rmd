@@ -4,7 +4,7 @@ author: "Stephen Pederson<br>Dame Roma Mitchell Cancer Research Laboratories<br>
 date: "`r format(Sys.Date(), '%d %B, %Y')`"
 output: workflowr::wflow_html
 editor_options:
-  chunk_output_type: console
+  chunk_output_type: inline
 ---
 
 ```{r setup, echo=FALSE}
@@ -854,6 +854,45 @@ Instead, this bias was attributed to genes expressed at low levels in only one o
 
 Any enrichment analysis should incorporate a bias offset, such as offered by the package `goseq`.
 Enrichment analysis using ranked lists should be undertaken with caution.
+
+
+# Compare DEGs to hub genes detected in the PDE study
+
+
+```{r}
+PDE_DHT_hubGene <- readRDS("~/WenjunLiu_Thesis_Chapter4/output/PDE_DHT_hubGene.rds")
+lobular_diff <- PDE_DHT_hubGene %>%
+  dplyr::filter(!Align) 
+lobular_overlap <- topTable %>%
+  dplyr::filter(DE) %>%
+  dplyr::select(
+    gene_name, logFC, 
+  ) %>%
+  left_join(
+    lobular_diff 
+  ) %>%
+  drop_na()
+
+```
+
+`r nrow(PDE_DHT_hubGene)` hub genes potentially driving the perturbation of pathways in DHT-treated IDC-like PDEs were loaded and compared against DEGs detected in DHT-treated MDA-MB-453 cells. Only 4 overlapping genes were found. All of them had directional opposing median ssFCs between IDC- and ILC-like PDEs, but the direction of changes observed in MDA-MB-453 cells aligned more to the DHT-treated IDC-like PDEs than ILC-like PDEs. Only the HIF1A gene, which was upregulated in MDA-MB-453 cells, had directional concordant chagne between the cell line and ILC-like PDEs and opposite change to IDC-like PDEs.
+
+```{r}
+temp <- lobular_overlap %>%
+  dplyr::select(
+    Gene = gene_name, 
+    `MDA-MB-453 logFC` = logFC, 
+    `ILC-like PDE logFC` = `ILC-like`, 
+    `IDC-like PDE logFC` = `IDC-like`
+  ) %>%
+  mutate_if(is.numeric, round, 4) 
+temp %>%
+  datatable() %>%
+  formatStyle(
+    str_subset(colnames(temp), "logFC"), 
+    color = styleInterval(0, c("blue", "red"))
+  )
+```
 
 ## Data Export
 

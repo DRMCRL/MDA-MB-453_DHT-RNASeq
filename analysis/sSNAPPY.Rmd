@@ -1,0 +1,216 @@
+---
+title: "sSNAPPY"
+output: html_document
+date: "2023-09-19"
+---
+
+```{r setup, echo=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  fig.align = "center",
+  fig.height = 7,
+  fig.width = 10
+)
+```
+
+```{r packages}
+library(tidyverse)
+library(yaml)
+library(scales)
+library(pander)
+library(glue)
+library(edgeR)
+library(AnnotationHub)
+library(ensembldb)
+library(magrittr)
+library(cowplot)
+library(ggfortify)
+library(cqn)
+library(ggrepel)
+library(DT)
+library(randomcoloR)
+library(ggforce)
+library(sSNAPPY)
+library(rvest)
+library(xml2)
+library(BSDA)
+library(corrplot)
+```
+
+
+```{r options}
+panderOptions("table.split.table", Inf)
+panderOptions("big.mark", ",")
+theme_set(theme_bw())
+```
+
+```{r config}
+config <- here::here("config/config.yml") %>%
+  read_yaml()
+suffix <- paste0(config$tag)
+sp <- config$ref$species %>%
+  str_replace("(^[a-z])[a-z]*_([a-z]+)", "\\1\\2") %>%
+  str_to_title()
+```
+
+```{r}
+if (!dir.exists(here::here("docs/assets"))) dir.create(here::here("docs/assets"))
+```
+
+
+# Setup
+
+## Gene Annotations
+
+```{r ah}
+ah <- AnnotationHub() %>%
+  subset(rdataclass == "EnsDb") %>%
+  subset(str_detect(description, as.character(config$ref$release))) %>%
+  subset(genome == config$ref$build)
+stopifnot(length(ah) == 1)
+```
+
+```{r ensDb}
+ensDb <- ah[[1]]
+genesGR <- read_rds(here::here("output/genesGR.rds"))
+```
+
+Gene annotations were again loaded from Ensembl Release `r ensemblVersion(ensDb)`.
+The [previously defined](qc_aligned.html#Annotation_Setup) `GenomicRanges` object containing GC content and Gene Length was also loaded,
+containing information for `r comma(length(genesGR))` genes.
+
+## Read in data
+
+```{r}
+diag_cols <- readRDS("~/GSE800098/output/diag_cols.rds")
+```
+
+The filtered and normalised `DGEList` was loaded in. 
+
+```{r importData}
+dge <- here::here("output/dge.rds") %>%
+  read_rds()
+logCPM <- dge$counts %>%
+  edgeR::cpm(log = TRUE)
+```
+
+
+# Retrieve KEGG pathways
+
+To apply the `sSNAPPY` algorithm, pathway topologies of KEGG pathways were firstly retrieved. 
+
+```{r gsTopology}
+gsTopology <- retrieve_topology(database = "kegg", species = "hsapien")
+```
+
+`r length(gsTopology)` KEGG pathways were retrieved but as described in the PDE study, irrelevant pathways are removed to keep only the 235 relevant pathways.
+
+```{r}
+gsTokeep <- readRDS("~/20131906_HickeyT_JC_NormalBreast/output/kg_gsTokeep.rds")
+gsTopology <- gsTopology %>%
+    .[names(.) %in% gsTokeep]
+```
+
+# sSNAPPY
+
+To compute the single-sample logFCs required, rownames of the logCPM matrix need to be converted to `entrez id` first.
+
+```{r entrezId}
+rownames(logCPM) <- mapIds(ensDb, rownames(logCPM), "ENTREZID", keytype = "GENEID")
+# Remove genes that couldn't be matched to entrez IDs
+logCPM <- logCPM[!is.na(rownames(logCPM)),]
+```
+
+Weighted single sample logFCs were computed from the logCPM matrix.
+
+```{r weightedFC}
+metadata <- dge$samples %>%
+    dplyr::rename(treatment = treat) %>%
+    droplevels() %>%
+    mutate(
+        treatment = relevel(treatment, ref = "Vehicle")
+    )
+weightedFC <- weight_ss_fc(logCPM, metadata, sampleColumn = "name", 
+                           treatColumn = "treatment", 
+                           groupBy = "rep")
+```
+
+
+Raw single sample perturbation scores for each treated sample each KEGG pathway were calculated. 
+```{r ssPertScore}
+gene_pert <- sSNAPPY::raw_gene_pert(weightedFC$weighted_logFC, gsTopology)
+ssPertScore <- pathway_pert(gene_pert, weightedFC = weightedFC$weighted_logFC)
+```
+
+Null distribution of perturbation scores were generated through sample label permutations. 
+
+```{r permutedScore}
+set.seed(123)
+permutedScore <- generate_permuted_scores(
+    logCPM,
+    gsTopology = gsTopology,
+    weight = weightedFC$weight
+)
+write_rds(permutedScore, here::here("output/MDA453_permutedscore.rds"))
+
+permutedScore <- read_rds(here::here("output/MDA453_permutedscore.rds"))
+```
+
+Since the sample size is fairly short (ie. 12 samples), the maximum number of possible permutation pairs is 132. The permuted distributions don't look very impressive. 
+
+```{r hist_pl, fig.width=10, fig.height=5}
+set.seed(123)
+pl <- permutedScore %>%
+    keep(~all(.!=0)) %>%
+    .[sample(seq_along(.), 6)] %>%
+    lapply(
+      function(x){
+        ggplot(mapping = aes(x)) + 
+          geom_histogram() +
+          xlab("Perturbation Score")
+      }
+    ) 
+plot_grid(plotlist = pl, nrow = 2)
+```
+
+### Sample-wise
+
+Raw perturbation scores were converted to robust z-scores based on the median and MAD derived from the null distributions. 
+A permuted p-value was computed for each single-sample perturbation scores and corrected for multiple testings. 
+
+No pathway was defined to be significantly perturbed at individual sample levels. 
+
+```{r normalisedScores}
+normalisedScores <- normalise_by_permu(permutedScore, ssPertScore)
+normalisedScores %>%
+    dplyr::filter(adjPvalue < 0.05)
+```
+
+### Average treatment effect
+
+Using the sample-level perturbation scores obtained above, we can testing for group-level perturbation by applying t-tests across all treated samples.
+Using a FDR cut-off of 0.05, only 2 pathways were considered to be significantly perturbed
+
+```{r}
+z_matrix <- normalisedScores %>%
+  dplyr::select(robustZ, gs_name, sample) %>%
+  # dplyr::filter(sample != "MDA2-D") %>%
+  pivot_wider(names_from = "sample", values_from = "robustZ") %>%
+  column_to_rownames("gs_name") %>%
+  as.matrix()
+sapply(rownames(z_matrix), function(x){
+  test <- t.test(z_matrix[x,]) 
+  data.frame(
+    gs_name = x, 
+    pvalue = test$p.value, 
+    t_statistic = test$statistic
+  )
+}, simplify = FALSE) %>%
+  bind_rows() %>%
+  mutate(FDR = p.adjust(pvalue, "fdr")) %>%
+  dplyr::filter(
+    FDR < 0.05
+  )
+```
